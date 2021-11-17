@@ -1,0 +1,5 @@
+[Lemonade Mint Slush, blended lemonade-ice-and-mint, 4],
+[Lebaneze Iced Tea, Sweet tea with rose water, 3],
+[Water, Water bottle(ozarka), 1.50],
+[Fountain Drink, 20oz fountain drink, 2.75],
+[Yogurt drink, Ayran-Shaneenah-yogurt drink, 4],

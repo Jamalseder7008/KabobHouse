@@ -1,0 +1,6 @@
+[Greek Salad, Romaine lettuce-cucumber-onion-olives-tomato-bell peppers-feta cheese and lemon salt olive oil dressing, 10],
+[Arabic Salad, Diced cucmber-tomato-green onion-parsley dressed with lemon salt and olive oil dressing, 8],
+[Tabouli, dine chopped parsley-cracked wheat-tomato-and-cucumber dressed with lemon salt and olive oil dressing, 8],
+[KH Special Salad, Romaine lettuce-cucumber-onions-tomato-onions-apples-mint-bell peppers-sunflower seeds-and zaatar dressed with lemon salt and olive oil dressing, 12],
+[Lentil Soup, Flavorful lentil-carrot-and-onion pureed soup(Cup 8oz), 5]
+[Lentil Soup, Flavorful lentil-carrot-and-onion pureed soup(Bowl 12oz), 7]

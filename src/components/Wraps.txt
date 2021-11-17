@@ -1,0 +1,9 @@
+[Falafel Wrap, Garlic and herb Falafel wrap dressed chefs choice served with seasoned fries, 10],
+[Chicken Shawarma Wrap, Garlic and herb Chicken Shawarma wrap dressed chefs choice served with seasoned fries, 10],
+[Beef Shawarma Wrap, Garlic and herb Beef Shawarma wrap dressed chefs choice served with seasoned fries, 10],
+[Gyro Wrap, Garlic and herb Gyro wrap dressed chefs choice served with seasoned fries, 10],
+[Chicken Kabob Wrap, Garlic and herb Chicken Kabob wrap dressed chefs choice served with seasoned fries, 10],
+[Kufta Kabob Wrap, Garlic and herb Kufta Kabob wrap dressed chefs choice served with seasoned fries, 11],
+[Lamb Kabob Wrap, Garlic and herb Lamb Kabob wrap dressed chefs choice served with seasoned fries, 12],
+[Shrimp Wrap, Garlic and herb Shrimp wrap dressed chefs choice served with seasoned fries, 12],
+[Veggie Wrap, Garlic and herb sauteed veggies wrap dressed chefs choice served with seasoned fries, 9]
