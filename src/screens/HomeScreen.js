@@ -20,6 +20,10 @@ const HomeScreen = (props) => {
       onPress={function(){ props.navigation.navigate("Cart")}}
       title={"Cart"}
     />
+    <Button 
+      onPress={function(){ props.navigation.navigate("Menu")}}
+      title={"Menu"}
+    />
   </View>
 };
 
