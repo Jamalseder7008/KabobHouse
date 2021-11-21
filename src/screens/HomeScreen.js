@@ -8,21 +8,25 @@ const HomeScreen = (props) => {
   return <View>
   <ImageDetail style={styles.container} imageSource={require('../../assets/KabobHouseLogo.jpg')}/>
     <Text style={styles.text}>KABOB HOUSE </Text>
-    <TouchableOpacity onPress={() => { props.navigation.navigate("Image")}}>
+    <TouchableOpacity onPress={() => { props.navigation.navigate("Menu")}}>
       <Text style={styles.text2}>FULL MENU </Text> 
     </TouchableOpacity>
-    <TouchableOpacity onPress={() => {props.navigation.navigate("Image")}}>
+    <TouchableOpacity onPress={() => {props.navigation.navigate("Appetizers")}}>
       <Text style={styles.text3}>APPETIZERS </Text>
     </TouchableOpacity>
-    <TouchableOpacity onPress = {() => {props.navigation.navigate("Image")}}>
+    <TouchableOpacity onPress = {() => {props.navigation.navigate("Plates")}}>
       <Text style={styles.text}>PLATES </Text>
     </TouchableOpacity>
-    <TouchableOpacity onPress = {() => {props.navigation.navigate("Image")}}>
+    <TouchableOpacity onPress = {() => {props.navigation.navigate("Drinks")}}>
       <Text style={styles.text2}>DRINKS </Text>
     </TouchableOpacity>
-    <TouchableOpacity onPress = {() => {props.navigation.navigate("Image")}}>
+    <TouchableOpacity onPress = {() => {props.navigation.navigate("Desserts")}}>
       <Text style={styles.text3}>DESSERTS </Text>
     </TouchableOpacity>
+    <Button 
+      onPress={function(){ props.navigation.navigate("Cart")}}
+      title={"PHONE"}
+    />
     <Button 
       onPress={function(){ props.navigation.navigate("Cart")}}
       title={"PHONE"}
