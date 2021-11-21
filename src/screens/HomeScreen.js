@@ -29,6 +29,10 @@ const HomeScreen = (props) => {
     />
     <Button 
       onPress={function(){ props.navigation.navigate("Cart")}}
+      title={"PHONE"}
+    />
+    <Button 
+      onPress={function(){ props.navigation.navigate("Cart")}}
       title={"CART"}
     />
     <Button 
