@@ -1,5 +1,5 @@
 import React from "react";
-import {Text, StyleSheet, View, FlatList,Button, Image, ScrollView} from "react-native";
+import {Text, StyleSheet, View, FlatList,Button, TouchableOpacity, Image, ScrollView} from "react-native";
 import App from "../../App";
 import ImageDetail from "../components/ImageDetail";
 
@@ -43,6 +43,21 @@ const Appetizers = (props) => {
                     <ImageDetail title={Appetizer.CheesePie[0]}  description={Appetizer.CheesePie[1]} imageSource={Appetizer.CheesePie[2]} price={Appetizer.CheesePie[3]}/>
                     <ImageDetail title={Appetizer.ChickenHummus[0]}  description={Appetizer.ChickenHummus[1]} imageSource={Appetizer.ChickenHummus[2]} price={Appetizer.ChickenHummus[3]}/>
                     <ImageDetail title={Appetizer.BeefHummus[0]}  description={Appetizer.BeefHummus[1]} imageSource={require('../../assets/KabobHouseLogo.jpg')} price={Appetizer.BeefHummus[2]}/>
+                    <View style={styles.BottomNav}>
+                        <TouchableOpacity onPress={() => {props.navigation.navigate("Home")}}>
+                            <Text>HOME</Text> 
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => {props.navigation.navigate("Phone")}}>
+                            <Text>Phone</Text> 
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => {props.navigation.navigate("Menu")}}>
+                            <Text>Menu</Text> 
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => {props.navigation.navigate("Map")}}>
+                            <Text>Map</Text> 
+                        </TouchableOpacity>
+                
+                    </View>
                 </View>
             </ScrollView>
         </View>
@@ -69,6 +84,13 @@ const styles = StyleSheet.create({
         
         width : 150,
         height: 150,
+    },
+    BottomNav: {
+        flexDirection:"row",
+        backgroundColor: "red",
+        justifyContent:"center",
+        alignContent: "space-around"
+
     }
 });
 

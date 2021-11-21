@@ -1,7 +1,7 @@
 import React from "react";
-import {Text, StyleSheet, Button, View, TouchableOpacity} from 'react-native';
+import {Text, StyleSheet, Button, View, TouchableOpacity, Image} from 'react-native';
 
-const Menu = () => {
+const Menu = (props) => {
 
 
     //TODO 0: make one page that can take in a list and populate with that info.
@@ -28,8 +28,44 @@ const Menu = () => {
     //TODO 14: third button will be the cart button
     //TODO 15: last button will be the maps button
 
-    return <View>
-    <Text>MENU</Text>
+    return<View style={styles.backGround}>
+            <View style={styles.container1}>
+                <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.jpg')}/>
+            </View>
+            <Text style={styles.title}>MENU{"\n"}</Text>
+            <TouchableOpacity onPress={() => {props.navigation.navigate("Appetizers")}}>
+                <Text style={styles.text3}>APPETIZERS </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress = {() => {props.navigation.navigate("Plates")}}>
+            <Text style={styles.text}>PLATES </Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity onPress = {() => {props.navigation.navigate("Salads")}}>
+            <Text style={styles.text}>SOUPS AND SALADS </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress = {() => {props.navigation.navigate("Drinks")}}>
+            <Text style={styles.text2}>DRINKS </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress = {() => {props.navigation.navigate("Desserts")}}>
+            <Text style={styles.text3}>DESSERTS </Text>
+            </TouchableOpacity>
+            <View style={styles.BottomNav}>
+                    <TouchableOpacity onPress={() => {props.navigation.navigate("Home")}}>
+                        <Text>HOME</Text> 
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => {props.navigation.navigate("Phone")}}>
+                        <Text>Phone</Text> 
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => {props.navigation.navigate("Menu")}}>
+                        <Text>Menu</Text> 
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => {props.navigation.navigate("Map")}}>
+                        <Text>Map</Text> 
+                    </TouchableOpacity>
+                
+            </View>
+            
     </View>;
 }
 
@@ -44,7 +80,60 @@ const styles = StyleSheet.create({
 
     //TODO 16: stylesheet for the bar at bottom, use flexDirection:row
     //TODO 17: place each button in correct spots.
+    text: {
+        fontSize: 30,
+        textAlign: 'center',
+        backgroundColor: 'red',
+        textShadowColor: '#fff',
+        textShadowRadius: 20
+      },
+      backGround:{
+        backgroundColor: '#ffffff',
+        overflow: 'scroll'
+    },
+    title:{
+        textAlign: "center",
+        alignContent: "space-around",
+        fontSize: 20,
+        fontWeight: "bold",
+    },
+      text2: {
+        fontSize: 30,
+        textAlign: 'center',
+        backgroundColor: 'red',
+        color: 'white',
+        textShadowColor: '#fff',
+        textShadowRadius: 20
+       },
+       text3: {
+        fontSize: 30,
+        textAlign: 'center',
+        backgroundColor: 'red',
+        color: '#fff',
+        textShadowColor: '#fff',
+        textShadowRadius: 20
+       },
+       container: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        
+        },
+        container1:{
+        
+            alignItems: "center"
+        },
+       logostyle:   {
+            width: 150,
+            height: 150
+        },
+        BottomNav: {
+            flexDirection:"row",
+            backgroundColor: "red",
+            
+            justifyContent:"center",
+            alignContent: "space-around"
     
+        }
 });
 
 export default Menu;

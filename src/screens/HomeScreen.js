@@ -11,6 +11,7 @@ const HomeScreen = (props) => {
     <TouchableOpacity onPress={() => { props.navigation.navigate("Menu")}}>
       <Text style={styles.text2}>FULL MENU </Text> 
     </TouchableOpacity>
+    {/* Moved these buttons under full menu tab -Jamal 
     <TouchableOpacity onPress={() => {props.navigation.navigate("Appetizers")}}>
       <Text style={styles.text3}>APPETIZERS </Text>
     </TouchableOpacity>
@@ -27,7 +28,8 @@ const HomeScreen = (props) => {
     </TouchableOpacity>
     <TouchableOpacity onPress = {() => {props.navigation.navigate("Desserts")}}>
       <Text style={styles.text3}>DESSERTS </Text>
-    </TouchableOpacity>
+    </TouchableOpacity> */}
+
     <Button 
       onPress={function(){ props.navigation.navigate("Cart")}}
       title={"PHONE"}

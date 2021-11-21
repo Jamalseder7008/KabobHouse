@@ -1,5 +1,5 @@
 import React from "react";
-import {Text, StyleSheet, View, FlatList,Button, ScrollView, Image} from "react-native";
+import {Text, StyleSheet, View, FlatList,Button, ScrollView, Image, TouchableOpacity} from "react-native";
 import ImageDetail from "../components/ImageDetail";
 
 var Plate = {CSP: ["Chicken Shawarma Plate", "shave cut marinated Chicken", require('../../assets/Chickenshawplate.jpg'), 17],
@@ -40,6 +40,21 @@ const Plates = () => {
                         <ImageDetail title={Plate.CTP[0]} description={Plate.CTP[1]} imageSource={Plate.CTP[2]} price={Plate.CTP[3]}/>
                         <ImageDetail title={Plate.VSP[0]} description={Plate.VSP[1]} imageSource={require('../../assets/KabobHouseLogo.jpg')} price={Plate.VSP[2]}/>
 
+                        <View style={styles.BottomNav}>
+                            <TouchableOpacity onPress={() => {props.navigation.navigate("Home")}}>
+                                <Text>HOME</Text> 
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {props.navigation.navigate("Phone")}}>
+                                <Text>Phone</Text> 
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {props.navigation.navigate("Menu")}}>
+                                <Text>Menu</Text> 
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {props.navigation.navigate("Map")}}>
+                                <Text>Map</Text> 
+                            </TouchableOpacity>
+                
+                        </View>
 
                     </View>
 
@@ -79,6 +94,13 @@ const styles = StyleSheet.create({
         
         width : 150,
         height: 150,
+    },
+    BottomNav: {
+        flexDirection:"row",
+        backgroundColor: "red",
+        justifyContent:"center",
+        alignContent: "space-around"
+
     }
 });
 

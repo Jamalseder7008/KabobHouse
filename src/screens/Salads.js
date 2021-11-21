@@ -1,5 +1,5 @@
 import React from "react";
-import {Text, StyleSheet, View, FlatList,Button, ScrollView, Image} from "react-native";
+import {Text, StyleSheet, View, FlatList,Button, ScrollView, Image, TouchableOpacity} from "react-native";
 import ImageDetail from "../components/ImageDetail";
 
 var Salad = {
@@ -29,6 +29,21 @@ const Salads = () => {
                         <ImageDetail title={Salad.LSBowl[0]} description={Salad.LSBowl[1]} imageSource={require('../../assets/KabobHouseLogo.jpg')}      price={Salad.LSBowl[2]}/>
             
 
+                        <View style={styles.BottomNav}>
+                            <TouchableOpacity onPress={() => {props.navigation.navigate("Home")}}>
+                                <Text>HOME</Text> 
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {props.navigation.navigate("Phone")}}>
+                                <Text>Phone</Text> 
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {props.navigation.navigate("Menu")}}>
+                                <Text>Menu</Text> 
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {props.navigation.navigate("Map")}}>
+                                <Text>Map</Text> 
+                            </TouchableOpacity>
+                        
+                        </View>
                     </View>
 
                 </View>
@@ -61,6 +76,13 @@ const styles = StyleSheet.create({
         
         width : 150,
         height: 150,
+    },
+    BottomNav: {
+        flexDirection:"row",
+        backgroundColor: "red",
+        justifyContent:"center",
+        alignContent: "space-around"
+
     }
 });
 
