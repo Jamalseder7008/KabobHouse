@@ -4,9 +4,9 @@
     "slug": "rn-starter-1",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/KabobHouseLogo.jpg",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/KabobHouseLogo.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,12 +21,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/KabobHouseLogo.jpg",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/KabobHouseLogo.jpg"
     }
   }
 }
