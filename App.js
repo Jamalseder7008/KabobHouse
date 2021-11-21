@@ -9,6 +9,8 @@ import CartScreen from "./src/screens/CartScreen";
 import Menu from "./src/screens/Menu";
 import Plates from "./src/screens/Plates";
 import Appetizers from "./src/screens/Appetizers";
+import Salads from "./src/screens/Salads";
+import Drinks from "./src/screens/Drinks";
 
 const navigator = createStackNavigator(
   {
@@ -19,6 +21,8 @@ const navigator = createStackNavigator(
     Cart: CartScreen,
     Menu: Menu,
     Appetizers: Appetizers,
+    Salads: Salads,
+    Drinks: Drinks
   },
   {
     initialRouteName: "Home",

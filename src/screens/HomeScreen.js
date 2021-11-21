@@ -17,16 +17,17 @@ const HomeScreen = (props) => {
     <TouchableOpacity onPress = {() => {props.navigation.navigate("Plates")}}>
       <Text style={styles.text}>PLATES </Text>
     </TouchableOpacity>
+    
+    <TouchableOpacity onPress = {() => {props.navigation.navigate("Salads")}}>
+      <Text style={styles.text}>SOUPS AND SALADS </Text>
+    </TouchableOpacity>
+
     <TouchableOpacity onPress = {() => {props.navigation.navigate("Drinks")}}>
       <Text style={styles.text2}>DRINKS </Text>
     </TouchableOpacity>
     <TouchableOpacity onPress = {() => {props.navigation.navigate("Desserts")}}>
       <Text style={styles.text3}>DESSERTS </Text>
     </TouchableOpacity>
-    <Button 
-      onPress={function(){ props.navigation.navigate("Cart")}}
-      title={"PHONE"}
-    />
     <Button 
       onPress={function(){ props.navigation.navigate("Cart")}}
       title={"PHONE"}
@@ -70,7 +71,8 @@ const styles = StyleSheet.create({
    },
    container: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    
     },
    logo:   {
         width: 300,
