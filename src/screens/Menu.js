@@ -36,20 +36,24 @@ const Menu = (props) => {
             <TouchableOpacity onPress={() => {props.navigation.navigate("Appetizers")}}>
                 <Text style={styles.text3}>APPETIZERS </Text>
             </TouchableOpacity>
+            <Text>{"/n"}</Text>
             <TouchableOpacity onPress = {() => {props.navigation.navigate("Plates")}}>
-            <Text style={styles.text}>PLATES </Text>
+                <Text style={styles.text}>PLATES </Text>
             </TouchableOpacity>
-            
+            <Text>{"/n"}</Text>
             <TouchableOpacity onPress = {() => {props.navigation.navigate("Salads")}}>
             <Text style={styles.text}>SOUPS AND SALADS </Text>
             </TouchableOpacity>
-
+            <Text>{"/n"}</Text>
             <TouchableOpacity onPress = {() => {props.navigation.navigate("Drinks")}}>
             <Text style={styles.text2}>DRINKS </Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress = {() => {props.navigation.navigate("Desserts")}}>
-            <Text style={styles.text3}>DESSERTS </Text>
+            <Text>{"/n"}</Text>
+            <TouchableOpacity onPress = {() => {props.navigation.navigate("Wraps")}}>
+            <Text style={styles.text3}>WRAPS </Text>
             </TouchableOpacity>
+            <Text>{"/n"}</Text>
+
             <View style={styles.BottomNav}>
                     <TouchableOpacity onPress={() => {props.navigation.navigate("Home")}}>
                         <Text>HOME</Text> 
