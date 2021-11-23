@@ -2,7 +2,7 @@ import React from "react";
 import {Text, StyleSheet, View, Image, FlatList,Button} from "react-native";
 
 
-const ImageDetail = (props) => {
+const ItemDetail = (props) => {
 
     console.log(props);
     return (
@@ -15,7 +15,9 @@ const ImageDetail = (props) => {
                     borderStyle: "dashed"
                     
                     }}/>
+                    
             <View style={styles.viewStyle}>
+            <Text>{"\n\n\n"}</Text>
                 <Image style={styles.image} source={props.imageSource}/>
                 <View style={styles.viewStyle1}>
                     <Text style={styles.textStyle}>{props.title} {"\n"}</Text>
@@ -35,27 +37,30 @@ const styles = StyleSheet.create({
         overflow: 'scroll'
     },
     viewStyle:{
-      flexDirection: "row",
+      flexDirection: "column",
         alignContent: "space-around",
-      alignItems: "stretch", 
+      alignItems: "center", 
+      
     },
     viewStyle1:{
         flexDirection: "column",
-        alignContent: "center",
-        alignItems:"center",
+        justifyContent:"center",
+        
     },
     image:{
-        width : 100,
-        height: 100,
+        width : 125,
+        height: 125,
     
+    },
+    title:{
+        fontWeight: "bold",
+        fontSize: 30,
     },
     textStyle:{
         flexDirection: "row",
         flexShrink: 1,
-        textAlign: "center",
-        alignContent: "center",
-        justifyContent: "center",
         fontSize:20,
+        alignSelf: "center"
         
         
     }
@@ -63,4 +68,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default ImageDetail;
+export default ItemDetail;

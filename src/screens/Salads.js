@@ -21,7 +21,9 @@ const Salads = () => {
                     </View>
                     <Text style={styles.title}>Salads{"\n"}</Text>    
                     <View style={styles.container1}>
+                    
                         <ImageDetail title={Salad.GreekSalad[0]} description={Salad.GreekSalad[1]} imageSource={Salad.GreekSalad[2]} price={Salad.GreekSalad[3]}/>
+                    
                         <ImageDetail title={Salad.ArabicSalad[0]} description={Salad.ArabicSalad[1]} imageSource={Salad.ArabicSalad[2]} price={Salad.ArabicSalad[3]}/>
                         <ImageDetail title={Salad.Tabula[0]}  description={Salad.Tabula[1]}  imageSource={require('../../assets/KabobHouseLogo.jpg')}      price={Salad.Tabula[2]}/>
                         <ImageDetail title={Salad.KHSS[0]}  description={Salad.KHSS[1]}  imageSource={require('../../assets/KabobHouseLogo.jpg')} price={Salad.KHSS[2]}/>

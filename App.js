@@ -11,6 +11,9 @@ import Plates from "./src/screens/Plates";
 import Appetizers from "./src/screens/Appetizers";
 import Salads from "./src/screens/Salads";
 import Drinks from "./src/screens/Drinks";
+import Login from "./src/screens/Login";
+//import ItemDetail from "./src/components/ItemDetail";
+import InnerMenu from "./src/screens/InnerMenu";
 
 const navigator = createStackNavigator(
   {
@@ -22,10 +25,12 @@ const navigator = createStackNavigator(
     Menu: Menu,
     Appetizers: Appetizers,
     Salads: Salads,
-    Drinks: Drinks
+    Drinks: Drinks,
+    Login:Login,
+    InnerMenu: InnerMenu
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Login",
     defaultNavigationOptions: {
       title: "App",
     },

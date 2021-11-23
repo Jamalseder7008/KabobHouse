@@ -42,6 +42,10 @@ const HomeScreen = (props) => {
       onPress={function(){ props.navigation.navigate("Map")}}
       title={"MAP"}
     />
+    <Button
+      onPress={function(){props.navigation.navigate("Login")}}
+      title={"Log out"}
+    />
 
   </View>
 };
