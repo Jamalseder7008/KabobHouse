@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {Text, StyleSheet, View, FlatList,Button, Image, ScrollView, TouchableOpacity} from "react-native";
 import ImageDetail from "../components/ImageDetail";
-
+import { Context as WrapsContext } from "../context/WrapsContext";
 
 // [Falafel Wrap, Garlic and herb Falafel wrap dressed chefs choice served with seasoned fries, 10],
 // [Chicken Shawarma Wrap, Garlic and herb Chicken Shawarma wrap dressed chefs choice served with seasoned fries, 10],
@@ -14,17 +14,18 @@ import ImageDetail from "../components/ImageDetail";
 // [Veggie Wrap, Garlic and herb sauteed veggies wrap dressed chefs choice served with seasoned fries, 9]
 
 const Wraps = (props) => {
-    const [Wrap, setPrices] = useState([
-        {title: "Chicken Shawarma Wrap",  description: "Garlic and herb Chicken Shawarma wrap dressed chefs choice served with seasoned fries", imageSource: require('../../assets/chickenwrap.jpg'), price: 10},
-        {title: "Falafel Wrap", description: "Garlic and herb Falafel wrap dressed chefs choice served with seasoned fries", imageSource: require('../../assets/KabobHouseLogo.jpg'), price: 10},
-        {title: "Beef Shawarma Wrap", description: "Garlic and herb Beef Shawarma wrap dressed chefs choice served with seasoned fries", imageSource: require('../../assets/beefwrap.jpg'), price: 10},
-        {title: "Gyro Wrap",description: "Garlic and herb Gyro wrap dressed chefs choice served with seasoned fries",imageSource:require('../../assets/GyroWrap.jpg'), price: 10},
-        {title: "Kufta Kabob Wrap",description: "Garlic and herb Kufta Kabob wrap dressed chefs choice served with seasoned fries", imageSource: require('../../assets/KabobHouseLogo.jpg'), price:11},
-        {title: "Lamb Kabob Wrap",description: "Garlic and herb Lamb Kabob wrap dressed chefs choice served with seasoned fries", imageSource: require('../../assets/KabobHouseLogo.jpg'), price:11},
-        {title: "Shrimp Wrap",description: "Garlic and herb Shrimp Wrap dressed chefs choice served with seasoned fries", imageSource: require('../../assets/KabobHouseLogo.jpg'), price:11},
-        {title: "Veggie Wrap",description: "Garlic and herb sautteed veggies wrap dressed chefs choice served with seasoned fries", imageSource: require('../../assets/KabobHouseLogo.jpg'), price:11},
-    ]);
+    // const [Wrap, setPrices] = useState([
+    //     {id: 138, title: "Chicken Shawarma Wrap",  description: "Garlic and herb Chicken Shawarma wrap dressed chefs choice served with seasoned fries", imageSource: require('../../assets/chickenwrap.jpg'), price: 10},
+    //     {id: 139, title: "Falafel Wrap", description: "Garlic and herb Falafel wrap dressed chefs choice served with seasoned fries", imageSource: require('../../assets/KabobHouseLogo.jpg'), price: 10},
+    //     {id: 140, title: "Beef Shawarma Wrap", description: "Garlic and herb Beef Shawarma wrap dressed chefs choice served with seasoned fries", imageSource: require('../../assets/beefwrap.jpg'), price: 10},
+    //     {id: 141, title: "Gyro Wrap",description: "Garlic and herb Gyro wrap dressed chefs choice served with seasoned fries",imageSource:require('../../assets/GyroWrap.jpg'), price: 10},
+    //     {id: 142, title: "Kufta Kabob Wrap",description: "Garlic and herb Kufta Kabob wrap dressed chefs choice served with seasoned fries", imageSource: require('../../assets/KabobHouseLogo.jpg'), price:11},
+    //     {id: 143, title: "Lamb Kabob Wrap",description: "Garlic and herb Lamb Kabob wrap dressed chefs choice served with seasoned fries", imageSource: require('../../assets/KabobHouseLogo.jpg'), price:11},
+    //     {id: 144, title: "Shrimp Wrap",description: "Garlic and herb Shrimp Wrap dressed chefs choice served with seasoned fries", imageSource: require('../../assets/KabobHouseLogo.jpg'), price:11},
+    //     {id: 145, title: "Veggie Wrap",description: "Garlic and herb sautteed veggies wrap dressed chefs choice served with seasoned fries", imageSource: require('../../assets/KabobHouseLogo.jpg'), price:11},
+    // ]);
 
+    const{state, loadWraps} = useContext(WrapsContext);
     return (
         <View>
             <ScrollView>
@@ -32,11 +33,12 @@ const Wraps = (props) => {
                     <View style={styles.container}>
                         <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.jpg')}/>
                     </View>
-                    
+                    <Text style={styles.title}>Wraps{"\n"}</Text>
                     <FlatList
-                        data={Wrap}
+                        data={state}
+                        keyExtractor={(wrap) => {return wrap.title,wrap.price, wrap.id}} 
                         renderItem={({ item }) => (
-                            <TouchableOpacity onPress={() => props.navigation.navigate('InnerMenu', item)}>
+                            <TouchableOpacity onPress={() => props.navigation.navigate('InnerMenuWrap', {id:item.id})}>
                                 <ImageDetail title={item.title} imageSource={item.imageSource}/>
                                 {/* <Text>{item.title}</Text> */}
                             </TouchableOpacity>

@@ -1,26 +1,32 @@
-import React from "react";
-import {Text, StyleSheet, Button, View, TouchableOpacity, Image, ScrollView} from 'react-native';
-import ItemDetail from "../components/ItemDetail";
+import React, {useContext} from "react";
+import {Text, StyleSheet, Button, View, TouchableOpacity, Image, ScrollView, FlatList} from 'react-native';
+//import { Context as AppetizerContext } from "../context/AppetizerContext";
+import{ Context as SaladContext} from "../context/SaladContext";
+const InnerMenuSalad = (props) => {
+    const{state} = useContext(SaladContext);
+    const itemID = props.navigation.getParam("id");
+    const itemDetails = state.find((itemDetails) => {
+        return itemID === itemDetails.id;
+    })
+    
 
-const InnerMenu = (props) => {
     return (
         <View style={styles.backGround}>
             <ScrollView>
                 <View>
-                    
                     <View style={styles.viewStyle}>
                     <Text>{"\n\n\n"}</Text>
-                    <Text style={styles.title}>{props.navigation.getParam('title')} {"\n"}</Text>
-                    <Image style={styles.image} source={props.navigation.getParam('imageSource')}/>
+                    <Text style={styles.title}>{itemDetails.title} {"\n"}</Text>
+                    <Image style={styles.image} source={itemDetails.imageSource}/>
                         <View style={styles.viewStyle1}>
                         <Text>{"\n"}</Text>
                         
-                        <Text style={styles.textStyle}>{props.navigation.getParam('description')} {"\n"}</Text>
-                        <Text style={styles.textStyle}> ${props.navigation.getParam('price')}</Text>    
+                        <Text style={styles.textStyle}>{itemDetails.description} {"\n"}</Text>
+                        <Text style={styles.textStyle}> ${itemDetails.price}</Text>     
                         </View>
-                
+                        
+                    
                     </View>
-             
                 </View>
             </ScrollView>
         </View>
@@ -88,4 +94,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default InnerMenu;
+export default InnerMenuSalad;

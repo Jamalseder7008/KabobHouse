@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {Text, StyleSheet, View, FlatList,Button, ScrollView, Image, TouchableOpacity} from "react-native";
 import ImageDetail from "../components/ImageDetail";
-
+import {Context as PlatesContext} from "../context/PlatesContext"
 // var  = {:"Chicken Shawarma Plate", "shave cut marinated Chicken", require('../../assets/Chickenshawplate.jpg'), 17],
 // "Beef Shawarma Plate", "tender thin cut Beef",require('../../assets/beefplate.jpg'), 18],
 // title:"Gyro Plate", "Lamb and Beef thin cut mix",require('../../assets/gyroplate.jpg'), 17],
@@ -17,22 +17,23 @@ import ImageDetail from "../components/ImageDetail";
 // :"Veggie Sauteed Plate", "Sauteed onions, peppers, zucchini, and carrots", 12]};
 
 const Plates = (props) => {
-    const[Plate, setPlate] = useState([
-        {title:"Chicken Shawarma Plate",description: "shave cut marinated Chicken", imageSource: require('../../assets/Chickenshawplate.jpg'), price: 17},
-        {title:"Beef Shawarma Plate", description: "tender thin cut Beef",imageSource: require('../../assets/beefplate.jpg'), price: 18},
-        {title:"Gyro Plate", description: "Lamb and Beef thin cut mix", imageSource: require('../../assets/gyroplate.jpg'), price: 17},
-        {title:"Falafel Plate", description: "8 piece fried chick pea bites", imageSource: require('../../assets/falafelplate.jpg'),price: 15},
-        {title:"Chicken Kabob Plate", description: "Grilled Chicken breast chunks", imageSource: require('../../assets/ChickenKabob.jpg'),price: 19},
-        {title:"Lamb Kabob Plate", description: "Grilled Tender Lamb chunks", imageSource: require('../../assets/lambkabob.jpg'), price: 22},
-        {title:"Kufta Kabob Plate", description: "Grilled Ground Beef and Lamb mix", imageSource:require('../../assets/KabobHouseLogo.jpg'), price: 19},
-        {title:"Kabob Kombo", description:"Grilled Lamb, Kufta, and Chicken Kabob", imageSource:require('../../assets/KabobHouseLogo.jpg'), price: 25},
-        {title:"Shawarma Kombo", description:"Chicken, Beef, or Gyro shawarma", imageSource:require('../../assets/KabobHouseLogo.jpg'), price: 22},
-        {title:"Lamb Chops Plate",description: "Fire-Grilled garlic marinated rib cuts", imageSource:require('../../assets/KabobHouseLogo.jpg'), price: 34},
-        {title:"Shrimp Sauteed Plate", description:"Sauteed shrimp and veggies", imageSource:require('../../assets/KabobHouseLogo.jpg'), price: 25},
-        {title:"Chicken Tekka Plate", description:"Fire-Grilled half chicken", imageSource:require('../../assets/chickentekka.jpg'), price: 19},
-        {title:"Veggie Sauteed Plate", description: "Sauteed onions, peppers, zucchini, and carrots", imageSource:require('../../assets/KabobHouseLogo.jpg'), price: 12}
-    ]);
+    // const[Plate, setPlate] = useState([
+    //     {id: 119, title:"Chicken Shawarma Plate",description: "shave cut marinated Chicken", imageSource: require('../../assets/Chickenshawplate.jpg'), price: 17},
+    //     {id: 120, title:"Beef Shawarma Plate", description: "tender thin cut Beef",imageSource: require('../../assets/beefplate.jpg'), price: 18},
+    //     {id: 121, title:"Gyro Plate", description: "Lamb and Beef thin cut mix", imageSource: require('../../assets/gyroplate.jpg'), price: 17},
+    //     {id: 122, title:"Falafel Plate", description: "8 piece fried chick pea bites", imageSource: require('../../assets/falafelplate.jpg'),price: 15},
+    //     {id: 123, title:"Chicken Kabob Plate", description: "Grilled Chicken breast chunks", imageSource: require('../../assets/ChickenKabob.jpg'),price: 19},
+    //     {id: 124, title:"Lamb Kabob Plate", description: "Grilled Tender Lamb chunks", imageSource: require('../../assets/lambkabob.jpg'), price: 22},
+    //     {id: 125, title:"Kufta Kabob Plate", description: "Grilled Ground Beef and Lamb mix", imageSource:require('../../assets/KabobHouseLogo.jpg'), price: 19},
+    //     {id: 126, title:"Kabob Kombo", description:"Grilled Lamb, Kufta, and Chicken Kabob", imageSource:require('../../assets/KabobHouseLogo.jpg'), price: 25},
+    //     {id: 127, title:"Shawarma Kombo", description:"Chicken, Beef, or Gyro shawarma", imageSource:require('../../assets/KabobHouseLogo.jpg'), price: 22},
+    //     {id: 128, title:"Lamb Chops Plate",description: "Fire-Grilled garlic marinated rib cuts", imageSource:require('../../assets/KabobHouseLogo.jpg'), price: 34},
+    //     {id: 129, title:"Shrimp Sauteed Plate", description:"Sauteed shrimp and veggies", imageSource:require('../../assets/KabobHouseLogo.jpg'), price: 25},
+    //     {id: 130, title:"Chicken Tekka Plate", description:"Fire-Grilled half chicken", imageSource:require('../../assets/chickentekka.jpg'), price: 19},
+    //     {id: 131, title:"Veggie Sauteed Plate", description: "Sauteed onions, peppers, zucchini, and carrots", imageSource:require('../../assets/KabobHouseLogo.jpg'), price: 12}
+    // ]);
     
+    const{state, loadPlates} = useContext(PlatesContext);
     return (
     <View>
             <ScrollView>
@@ -58,9 +59,10 @@ const Plates = (props) => {
                         <ImageDetail title={Plate.VSP[0]} description={Plate.VSP[1]} imageSource={require('../../assets/KabobHouseLogo.jpg')} price={Plate.VSP[2]}/> */}
 
                     <FlatList
-                        data={Plate}
+                        data={state}
+                        keyExtractor={(plate) => {return plate.title, plate.id, plate.price}}
                         renderItem={({ item }) => (
-                            <TouchableOpacity onPress={() => props.navigation.navigate('InnerMenu', item)}>
+                            <TouchableOpacity onPress={() => props.navigation.navigate('InnerMenuPlate', {id:item.id})}>
                                 <ImageDetail title={item.title} imageSource={item.imageSource}/>
                                 {/* <Text>{item.title}</Text> */}
                             </TouchableOpacity>

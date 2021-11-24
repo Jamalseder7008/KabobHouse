@@ -1,3 +1,4 @@
+//Component has been commented out.
 import React from "react";
 import {Text, StyleSheet, View, Image, FlatList,Button} from "react-native";
 
@@ -6,28 +7,22 @@ const ItemDetail = (props) => {
 
     console.log(props);
     return (
-        <View style={styles.backGround}>
-            <View
-                    style={{
-                    borderBottomColor: 'black',
-                    borderWidth: 2,
-                    borderRadius:1,
-                    borderStyle: "dashed"
+        <View>
                     
-                    }}/>
-                    
-            <View style={styles.viewStyle}>
-            <Text>{"\n\n\n"}</Text>
-                <Image style={styles.image} source={props.imageSource}/>
-                <View style={styles.viewStyle1}>
-                    <Text style={styles.textStyle}>{props.title} {"\n"}</Text>
-                    <Text style={styles.textStyle}>{props.description} {"\n"}</Text>
-                    <Text style={styles.textStyle}> {props.price}</Text>    
-                </View>
+                    <View style={styles.viewStyle}>
+                    <Text>{"\n\n\n"}</Text>
+                    <Text style={styles.title}>{props.navigation.getParam('title')} {"\n"}</Text>
+                    <Image style={styles.image} source={props.navigation.getParam('imageSource')}/>
+                        <View style={styles.viewStyle1}>
+                        <Text>{"\n"}</Text>
+                        
+                        <Text style={styles.textStyle}>{props.navigation.getParam('description')} {"\n"}</Text>
+                        <Text style={styles.textStyle}> ${props.navigation.getParam('price')}</Text>    
+                        </View>
                 
-             </View>
+                    </View>
              
-        </View>
+                </View>
     );
 }
 
