@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
 import {Text, StyleSheet, View, FlatList,Button, TouchableOpacity, Image, ScrollView} from "react-native";
 import ImageDetail from "../components/ImageDetail";
-import CartContext from "../context/CartContext";
+//import CartContext from "../context/CartContext";
 import {Context as AppetizerContext} from "../context/AppetizerContext";
-
+//import {Feather} from '@expo/vector-icons'; 
+//import MenuForm from "../components/MenuForm";
 
 
 
@@ -52,6 +53,7 @@ const Appetizers = (props) => {
         
     );
 }
+
 
 const styles = StyleSheet.create({
     backGround:{

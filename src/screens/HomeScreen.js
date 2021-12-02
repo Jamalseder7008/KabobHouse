@@ -1,12 +1,14 @@
 import React from "react";
-import { Text, StyleSheet, View, Button, TouchableOpacity, Flatlist, AppRegistry } from "react-native";
+import { Text, StyleSheet, View, Button, TouchableOpacity, Image, Flatlist, AppRegistry } from "react-native";
 import ImageDetail from "../components/ImageDetail";
 
 
 const HomeScreen = (props) => {
   
-  return <View>
-  <ImageDetail style={styles.container} imageSource={require('../../assets/KabobHouseLogo.jpg')}/>
+  return <View style={styles.backGround}>
+  <View style={styles.container1}>
+      <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.jpg')}/>
+  </View>
     <Text style={styles.text}>KABOB HOUSE </Text>
     <TouchableOpacity onPress={() => { props.navigation.navigate("Menu")}}>
       <Text style={styles.text2}>FULL MENU </Text> 
@@ -51,7 +53,17 @@ const HomeScreen = (props) => {
 };
 
 const styles = StyleSheet.create({
-  
+  backGround:{
+    backgroundColor: '#ffffff',
+  },
+  container1:{
+        
+    alignItems: "center"
+},
+logostyle:   {
+    width: 150,
+    height: 150
+},
   text: {
     fontSize: 30,
     textAlign: 'center',

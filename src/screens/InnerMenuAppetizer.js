@@ -1,15 +1,25 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {Text, StyleSheet, Button, View, TouchableOpacity, Image, ScrollView, FlatList} from 'react-native';
 import { Context as AppetizerContext } from "../context/AppetizerContext";
-import { Context as SaladContext } from "../context/SaladContext";
+import { Context as CartContext} from "../context/CartContext";
+//import { Context as SaladContext } from "../context/SaladContext";
+import {Feather} from '@expo/vector-icons';
+//import Appetizers from "./Appetizers";
+
 
 const InnerMenuAppetizer = (props) => {
-    const{state} = useContext(AppetizerContext);
+    //const{state, addCartItem} = useContext(AppetizerContext);
+    const AppetizerStuff = useContext(AppetizerContext);
+    const AppetizerState = AppetizerStuff.state;
+    
     const itemID = props.navigation.getParam("id");
-    const itemDetails = state.find((itemDetails) => {
+    const itemDetails = AppetizerState.find((itemDetails) => {
         return itemID === itemDetails.id;
     })
+    const{state, addCartItem} = useContext(CartContext);
     
+    // const[title, setTitle] = useState(itemDetails.title);
+    // const[price, setPrice] = useState(itemDetails.price);
 
     return (
         <View style={styles.backGround}>
@@ -18,12 +28,16 @@ const InnerMenuAppetizer = (props) => {
                     <View style={styles.viewStyle}>
                     <Text>{"\n\n\n"}</Text>
                     <Text style={styles.title}>{itemDetails.title} {"\n"}</Text>
+                    
                     <Image style={styles.image} source={itemDetails.imageSource}/>
                         <View style={styles.viewStyle1}>
                         <Text>{"\n"}</Text>
-                        
+                        <Button title="Add to Cart" onPress={() => {
+                            addCartItem(itemDetails.title, itemDetails.price);
+                            // props.navigation.navigate("Cart");
+                            }}/>
                         <Text style={styles.textStyle}>{itemDetails.description} {"\n"}</Text>
-                        <Text style={styles.textStyle}> ${itemDetails.price}</Text>     
+                        <Text style={styles.textStyle}> ${itemDetails.price}</Text>
                         </View>
                         
                     
@@ -32,6 +46,16 @@ const InnerMenuAppetizer = (props) => {
             </ScrollView>
         </View>
     );
+}
+InnerMenuAppetizer.navigationOptions = (props) => {
+    return{
+        headerRight:() => (
+            <TouchableOpacity onPress={ () => {props.navigation.navigate("Cart")}}>
+                <Feather name="shopping-cart" size={30} />
+            </TouchableOpacity>
+           
+        )
+    };
 }
 
 const styles = StyleSheet.create({

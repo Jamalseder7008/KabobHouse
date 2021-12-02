@@ -1,20 +1,18 @@
 import React, {useContext} from "react";
 import {Text, StyleSheet, Button, View, TouchableOpacity, Image, ScrollView, FlatList} from 'react-native';
 import { Context as PlateContext } from "../context/PlatesContext";
-//import ItemDetail from "../components/ImageDetail";
-//import { Context as SaladContext } from "../context/SaladContext";
-
-// import ItemDetail from "../components/ItemDetail";
-// import CartContext from "../context/CartContext";
-// import InnerMenuContext from "../context/InnerMenuContext"
+import {Feather} from '@expo/vector-icons'; 
+import {Context as CartContext} from "../context/CartContext";
 
 const InnerMenuPlate = (props) => {
-    const{state} = useContext(PlateContext);
+    //const{state} = useContext(PlateContext);
+    const PlateStuff = useContext(PlateContext);
+    const PlateState = PlateStuff.state;
     const itemID = props.navigation.getParam("id");
-    const itemDetails = state.find((itemDetails) => {
+    const itemDetails = PlateState.find((itemDetails) => {
         return itemID === itemDetails.id;
     })
-    
+    const{state, addCartItem} = useContext(CartContext);
 
     return (
         <View style={styles.backGround}>
@@ -26,7 +24,10 @@ const InnerMenuPlate = (props) => {
                     <Image style={styles.image} source={itemDetails.imageSource}/>
                         <View style={styles.viewStyle1}>
                         <Text>{"\n"}</Text>
-                        
+                        <Button title="Add to Cart" onPress={() => {
+                            addCartItem(itemDetails.title, itemDetails.price);
+                            // props.navigation.navigate("Cart");
+                            }}/>
                         <Text style={styles.textStyle}>{itemDetails.description} {"\n"}</Text>
                         <Text style={styles.textStyle}> ${itemDetails.price}</Text>     
                         </View>
@@ -37,6 +38,16 @@ const InnerMenuPlate = (props) => {
             </ScrollView>
         </View>
     );
+}
+InnerMenuPlate.navigationOptions = (props) => {
+    return{
+        headerRight:() => (
+            <TouchableOpacity onPress={ () => {props.navigation.navigate("Cart")}}>
+                <Feather name="shopping-cart" size={30} />
+            </TouchableOpacity>
+           
+        )
+    };
 }
 
 const styles = StyleSheet.create({

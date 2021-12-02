@@ -49,6 +49,16 @@ const Drinks = (props) => {
         
     );
 }
+// Drinks.navigationOptions = (props) => {
+//     return{
+//         headerRight:() => (
+//             <TouchableOpacity onPress={ () => {props.navigation.navigate("Cart")}}>
+//                 <Feather name="shopping-cart" size={30} />
+//             </TouchableOpacity>
+           
+//         )
+//     };
+// }
 
 const styles = StyleSheet.create({
     backGround:{

@@ -1,14 +1,18 @@
 import React, {useContext} from "react";
 import {Text, StyleSheet, Button, View, TouchableOpacity, Image, ScrollView, FlatList} from 'react-native';
-//import { Context as AppetizerContext } from "../context/AppetizerContext";
 import{ Context as SaladContext} from "../context/SaladContext";
+import {Feather} from '@expo/vector-icons'; 
+import { Context as CartContext} from "../context/CartContext";
+
 const InnerMenuSalad = (props) => {
-    const{state} = useContext(SaladContext);
+    //const{state} = useContext(SaladContext);
+    const SaladStuff = useContext(SaladContext);
+    const SaladState = SaladStuff.state;
     const itemID = props.navigation.getParam("id");
-    const itemDetails = state.find((itemDetails) => {
+    const itemDetails = SaladState.find((itemDetails) => {
         return itemID === itemDetails.id;
     })
-    
+    const{state, addCartItem} = useContext(CartContext);
 
     return (
         <View style={styles.backGround}>
@@ -20,7 +24,10 @@ const InnerMenuSalad = (props) => {
                     <Image style={styles.image} source={itemDetails.imageSource}/>
                         <View style={styles.viewStyle1}>
                         <Text>{"\n"}</Text>
-                        
+                        <Button title="Add to Cart" onPress={() => {
+                            addCartItem(itemDetails.title, itemDetails.price);
+                            // props.navigation.navigate("Cart");
+                            }}/>
                         <Text style={styles.textStyle}>{itemDetails.description} {"\n"}</Text>
                         <Text style={styles.textStyle}> ${itemDetails.price}</Text>     
                         </View>
@@ -31,6 +38,16 @@ const InnerMenuSalad = (props) => {
             </ScrollView>
         </View>
     );
+}
+InnerMenuSalad.navigationOptions = (props) => {
+    return{
+        headerRight:() => (
+            <TouchableOpacity onPress={ () => {props.navigation.navigate("Cart")}}>
+                <Feather name="shopping-cart" size={30} />
+            </TouchableOpacity>
+           
+        )
+    };
 }
 
 const styles = StyleSheet.create({

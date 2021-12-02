@@ -18,13 +18,18 @@ const CartScreen =() => {
                 <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.jpg')}/>
             </View>
             <Text style={styles.title}>CART{"\n"}</Text>
-            <Button title="Add to Cart" onPress={() => { addCartItem()}}/>
+            {/* <Button title="Add to Cart" onPress={() => { addCartItem()}}/> */}
             <FlatList
                 data={state}
-                keyExtractor={(cartItem) => {return cartItem.title}}
+                keyExtractor={(cartItem) => {return cartItem.title, cartItem.price}}
                 renderItem={({item}) => {
                     return <View style={styles.row}>
-                        <Text style={styles.cartItem}>{item.title}</Text>
+                        <View style={styles.cartItem}>
+                        <Text style={styles.lineLeft}>{item.title} x 1</Text>
+                        <Text style={styles.lineRight}>$ {item.price}</Text>
+                        
+                        </View>
+                        
                         <TouchableOpacity onPress={() => {deleteCartItem(item.id)}}>
                             <Feather name="trash" style={styles.icon}/>
                         </TouchableOpacity>
@@ -45,8 +50,22 @@ const styles = StyleSheet.create({
         borderBottomWidth:1,
         borderColor: 'grey'
     },
+    lineLeft: {
+        fontSize: 20, 
+        lineHeight: 40, 
+        color:'#333333' 
+      },
+      lineRight: { 
+        flex: 1,
+        fontSize: 20, 
+        fontWeight: 'bold',
+        lineHeight: 40, 
+        color:'#333333', 
+        textAlign:'right',
+      },
     cartItem:{
-        fontSize: 18
+        fontSize: 18,
+        justifyContent: "space-between",  
     },
     icon:{
         fontSize: 24

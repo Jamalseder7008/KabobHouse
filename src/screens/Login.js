@@ -69,7 +69,19 @@ const styles = StyleSheet.create({
     logo:   {
             width: 300,
             height: 400
-        }
+        },
+    container1:{
+        
+            alignItems: "center"
+    },
+    logostyle:   {
+            width: 150,
+            height: 150
+    },
+    backGround:{
+        backgroundColor: '#ffffff',
+    },
+
     });
     
     export default Login;

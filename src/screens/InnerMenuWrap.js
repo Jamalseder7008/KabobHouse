@@ -2,14 +2,18 @@ import React, {useContext} from "react";
 import {Text, StyleSheet, Button, View, TouchableOpacity, Image, ScrollView, FlatList} from 'react-native';
 import { Context as WrapContext } from "../context/WrapsContext";
 //import { Context as SaladContext } from "../context/SaladContext";
+import {Feather} from '@expo/vector-icons'; 
+import { Context as CartContext} from "../context/CartContext";
 
 const InnerMenuWrap = (props) => {
-    const{state} = useContext(WrapContext);
+    //const{state} = useContext(WrapContext);
+    const WrapStuff = useContext(WrapContext);
+    const WrapState = WrapStuff.state;
     const itemID = props.navigation.getParam("id");
-    const itemDetails = state.find((itemDetails) => {
+    const itemDetails = WrapState.find((itemDetails) => {
         return itemID === itemDetails.id;
     })
-    
+    const{state, addCartItem} = useContext(CartContext);
 
     return (
         <View style={styles.backGround}>
@@ -21,7 +25,10 @@ const InnerMenuWrap = (props) => {
                     <Image style={styles.image} source={itemDetails.imageSource}/>
                         <View style={styles.viewStyle1}>
                         <Text>{"\n"}</Text>
-                        
+                        <Button title="Add to Cart" onPress={() => {
+                            addCartItem(itemDetails.title, itemDetails.price);
+                            // props.navigation.navigate("Cart");
+                            }}/>
                         <Text style={styles.textStyle}>{itemDetails.description} {"\n"}</Text>
                         <Text style={styles.textStyle}> ${itemDetails.price}</Text>     
                         </View>
@@ -32,6 +39,16 @@ const InnerMenuWrap = (props) => {
             </ScrollView>
         </View>
     );
+}
+InnerMenuWrap.navigationOptions = (props) => {
+    return{
+        headerRight:() => (
+            <TouchableOpacity onPress={ () => {props.navigation.navigate("Cart")}}>
+                <Feather name="shopping-cart" size={30} />
+            </TouchableOpacity>
+           
+        )
+    };
 }
 
 const styles = StyleSheet.create({
