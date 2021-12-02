@@ -1,7 +1,7 @@
 import React from "react";
 import {Text, StyleSheet, View, Image, FlatList,Button} from "react-native";
 
-
+//TODO: fix photo and text alignment
 const ImageDetail = (props) => {
 
     console.log(props);
@@ -36,6 +36,9 @@ const styles = StyleSheet.create({
     },
     viewStyle:{
       flexDirection: "row",
+      paddingTop: 20,
+      paddingLeft: 20,
+    
         alignContent: "space-around",
       alignItems: "stretch", 
     },
@@ -55,7 +58,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         alignContent: "center",
         justifyContent: "center",
-        fontSize:20,
+        fontSize:30,
         
         
     }

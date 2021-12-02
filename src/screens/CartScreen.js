@@ -3,9 +3,24 @@ import {View, Text, StyleSheet, Button, Image, FlatList, TouchableOpacity} from 
 import {Feather} from '@expo/vector-icons';
 import {Context as CartContext} from "../context/CartContext";
 
+
+
 const CartScreen =() => {
 
-    const{state, addCartItem, deleteCartItem} = useContext(CartContext);
+    
+    const{state, deleteCartItem, getCartTotal} = useContext(CartContext);
+    
+    let sumFunction = function(a, b)
+    {
+        return a + b
+    }
+    let total = 0;
+    state.forEach(cartItem => {
+        total = sumFunction(total, cartItem.price)
+    })
+    
+    
+    
 
     // const [count, setCounter] = useState(0);
 
@@ -26,7 +41,9 @@ const CartScreen =() => {
                     return <View style={styles.row}>
                         <View style={styles.cartItem}>
                         <Text style={styles.lineLeft}>{item.title} x 1</Text>
+                        
                         <Text style={styles.lineRight}>$ {item.price}</Text>
+                        
                         
                         </View>
                         
@@ -37,6 +54,9 @@ const CartScreen =() => {
                     </View>                
                 }}
             />
+            <View>
+                <Text style={styles.total}>Total: ${total}</Text>
+            </View>
         {/* <Text>Current Count: {count}</Text> */}
         </View>
 }
@@ -46,9 +66,15 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         paddingVertical: 20,
+        paddingHorizontal: 20,
         borderTopWidth: 1,
         borderBottomWidth:1,
         borderColor: 'grey'
+    },
+    total: {
+        fontSize: 20,
+        paddingRight: 20,
+        alignSelf: "flex-end"
     },
     lineLeft: {
         fontSize: 20, 

@@ -8,8 +8,13 @@ const cartReducer = (state, action) => {
             return [...state, {
                 id: Math.floor(Math.random()*9999999), 
                 title: action.payload.title, 
-                price: action.payload.price
+                price: action.payload.price,
+                //cartTotal: cartTotal + action.payload.price
+                
             }]
+        case 'get_carttotal':
+            
+            return {cartTotal}; 
         case 'delete_cartitem':
             return state.filter((cartItem) => {
                 return cartItem.id !== action.payload
@@ -33,10 +38,18 @@ const addCartItem = (dispatch) => {
     }
     
 }
+const getCartTotal = (dispatch) => {
+    return(cartTotal) => {
+        dispatch({
+            type: 'get_carttotal',
+            payload: {cartTotal:cartTotal}
+        })
+    }
+}
     const deleteCartItem = (dispatch) => {
         return(id) => {
             dispatch({type: 'delete_cartitem', payload: id});
         }
     }
 
-export const {Context, Provider} = createDataContext(cartReducer, {addCartItem:addCartItem, deleteCartItem: deleteCartItem}, []);
+export const {Context, Provider} = createDataContext(cartReducer, {addCartItem:addCartItem, deleteCartItem: deleteCartItem, getCartTotal: getCartTotal},  []);

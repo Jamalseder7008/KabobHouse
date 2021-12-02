@@ -5,7 +5,7 @@ import createDataContext from "./createDataContext";
 const innerMenuReducer = (state, action) => {
     switch(action.type) {
         case 'load_details':
-            return [...state, {title: `Item this is from the inner menu #${state.length+1}`}]
+            return [...state, {title: title}]
         case 'add_cartitem':
             return [...state, {id: Math.floor(Math.random() *9999999), title: `Item #${state.length+1}`}]
         default:
