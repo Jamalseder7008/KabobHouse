@@ -1,11 +1,8 @@
 import React, { useState, useContext } from "react";
 import {Text, StyleSheet, View, FlatList,Button, TouchableOpacity, Image, ScrollView} from "react-native";
 import ImageDetail from "../components/ImageDetail";
-//import CartContext from "../context/CartContext";
 import {Context as AppetizerContext} from "../context/AppetizerContext";
-//import {Feather} from '@expo/vector-icons'; 
-//import MenuForm from "../components/MenuForm";
-
+import BottomNav from "../components/BottomNav";
 
 
 //Use dictionary to populate each imagedetail component
@@ -32,21 +29,7 @@ const Appetizers = (props) => {
                         )}
                         />
 
-                    <View style={styles.BottomNav}>
-                        <TouchableOpacity onPress={() => {props.navigation.navigate("Home")}}>
-                            <Text>HOME</Text> 
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {props.navigation.navigate("Phone")}}>
-                            <Text>Phone</Text> 
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {props.navigation.navigate("Menu")}}>
-                            <Text>Menu</Text> 
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {props.navigation.navigate("Map")}}>
-                            <Text>Map</Text> 
-                        </TouchableOpacity>
-                
-                    </View>
+                <BottomNav navigation={props.navigation}/>
                 </View>
             </ScrollView>
         </View>

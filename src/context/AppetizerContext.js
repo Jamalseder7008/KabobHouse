@@ -6,31 +6,11 @@ const appetizerReducer = (state, action) => {
     switch(action.type) {
         case 'load_appetizers':
             return [...state, {title: `Item #${state.length+1}`}]
-        // case 'add_cartitem':
-        //     return [...state, 
-        //         {
-        //         id: Math.floor(Math.random()*9999999), 
-        //         title: action.payload.title, 
-        //         price: action.payload.price
-        //     }
-        // ]
-
         default:
             return state;
     }
 
 }
-
-// const addCartItem = (dispatch) => {
-//     return(title, price) => {
-//         dispatch({
-//             type: 'add_cartitem', 
-//             payload: {title:title, price:price}
-//         });
-//     }
-//must be in cartContext.js    
-// }
-
 
     const loadAppetizers = (dispatch) => {
         return() =>{

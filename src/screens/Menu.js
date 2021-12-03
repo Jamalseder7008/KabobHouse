@@ -1,5 +1,6 @@
 import React from "react";
 import {Text, StyleSheet, Button, View, TouchableOpacity, Image} from 'react-native';
+import BottomNav from "../components/BottomNav";
 
 const Menu = (props) => {
 
@@ -33,42 +34,28 @@ const Menu = (props) => {
                 <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.jpg')}/>
             </View>
             <Text style={styles.title}>MENU{"\n"}</Text>
-            <TouchableOpacity onPress={() => {props.navigation.navigate("Appetizers")}}>
-                <Text style={styles.text3}>APPETIZERS </Text>
+            <TouchableOpacity style={styles.container} onPress={() => {props.navigation.navigate("Appetizers")}}>
+                <Text style={styles.text}>APPETIZERS </Text>
             </TouchableOpacity>
             <Text>{"\n"}</Text>
-            <TouchableOpacity onPress = {() => {props.navigation.navigate("Plates")}}>
+            <TouchableOpacity style={styles.container} onPress = {() => {props.navigation.navigate("Plates")}}>
                 <Text style={styles.text}>PLATES </Text>
             </TouchableOpacity>
             <Text>{"\n"}</Text>
-            <TouchableOpacity onPress = {() => {props.navigation.navigate("Salads")}}>
+            <TouchableOpacity style={styles.container} onPress = {() => {props.navigation.navigate("Salads")}}>
             <Text style={styles.text}>SOUPS AND SALADS </Text>
             </TouchableOpacity>
             <Text>{"\n"}</Text>
-            <TouchableOpacity onPress = {() => {props.navigation.navigate("Drinks")}}>
-            <Text style={styles.text2}>DRINKS </Text>
+            <TouchableOpacity style={styles.container} onPress = {() => {props.navigation.navigate("Drinks")}}>
+            <Text style={styles.text}>DRINKS </Text>
             </TouchableOpacity>
             <Text>{"\n"}</Text>
-            <TouchableOpacity onPress = {() => {props.navigation.navigate("Wraps")}}>
-            <Text style={styles.text3}>WRAPS </Text>
+            <TouchableOpacity style={styles.container} onPress = {() => {props.navigation.navigate("Wraps")}}>
+            <Text style={styles.text}>WRAPS </Text>
             </TouchableOpacity>
             <Text>{"\n"}</Text>
 
-            <View style={styles.BottomNav}>
-                    <TouchableOpacity onPress={() => {props.navigation.navigate("Home")}}>
-                        <Text>HOME</Text> 
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => {props.navigation.navigate("Phone")}}>
-                        <Text>Phone</Text> 
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => {props.navigation.navigate("Menu")}}>
-                        <Text>Menu</Text> 
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => {props.navigation.navigate("Map")}}>
-                        <Text>Map</Text> 
-                    </TouchableOpacity>
-                
-            </View>
+            <BottomNav navigation={props.navigation}/>
             
     </View>;
 }
@@ -87,11 +74,19 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 30,
         textAlign: 'center',
-        backgroundColor: 'red',
         textShadowColor: '#fff',
+        color: 'white',
         textShadowRadius: 20
-      },
-      backGround:{
+    },
+    container: {
+        backgroundColor: '#b12135',
+        margin: 5,
+        borderRadius:5,
+        justifyContent: 'center',
+        alignItems: 'center',
+    
+    },
+    backGround:{
         backgroundColor: '#ffffff',
         overflow: 'scroll'
     },
@@ -101,43 +96,21 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "bold",
     },
-      text2: {
-        fontSize: 30,
-        textAlign: 'center',
-        backgroundColor: 'red',
-        color: 'white',
-        textShadowColor: '#fff',
-        textShadowRadius: 20
-       },
-       text3: {
-        fontSize: 30,
-        textAlign: 'center',
-        backgroundColor: 'red',
-        color: '#fff',
-        textShadowColor: '#fff',
-        textShadowRadius: 20
-       },
-       container: {
-        justifyContent: 'center',
-        alignItems: 'center',
+    container1:{
         
-        },
-        container1:{
-        
-            alignItems: "center"
-        },
-       logostyle:   {
-            width: 150,
-            height: 150
-        },
-        BottomNav: {
-            flexDirection:"row",
-            backgroundColor: "red",
-            
-            justifyContent:"center",
-            alignContent: "space-around"
+        alignItems: "center"
+    },
+    logostyle:   {
+        width: 150,
+        height: 150
+    },
+    BottomNav: {
+        flexDirection:"row",
+        backgroundColor: "red",    
+        justifyContent:"center",
+        alignContent: "space-around"
     
-        }
+    }
 });
 
 export default Menu;

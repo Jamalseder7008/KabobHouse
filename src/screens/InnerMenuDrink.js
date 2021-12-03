@@ -24,12 +24,13 @@ const InnerMenuDrink = (props) => {
                     <Image style={styles.image} source={itemDetails.imageSource}/>
                         <View style={styles.viewStyle1}>
                         <Text>{"\n"}</Text>
-                        <Button title="Add to Cart" onPress={() => {
-                            addCartItem(itemDetails.title, itemDetails.price);
-                            // props.navigation.navigate("Cart");
-                            }}/>
-                        <Text style={styles.textStyle}>{itemDetails.description} {"\n"}</Text>
-                        <Text style={styles.textStyle}> ${itemDetails.price}</Text>     
+                        
+                            
+                        <Text style={styles.textStyle}>{"\n"}{itemDetails.description} {"\n"}</Text>
+                        <Text style={styles.textStyle}> ${itemDetails.price}{"\n"}</Text>    
+                        <TouchableOpacity style={styles.container} onPress={()=> {addCartItem(itemDetails.title, itemDetails.price);}}>
+                            <Text style={styles.text}>Add to Cart</Text>
+                        </TouchableOpacity>  
                         </View>
                         
                     
@@ -58,10 +59,6 @@ const styles = StyleSheet.create({
     container1:{
         alignContent: "space-between"
     },
-    container:{
-        
-        alignItems: "center"
-    },
     viewStyle:{
         flexDirection: "column",
           alignContent: "space-around",
@@ -89,6 +86,22 @@ const styles = StyleSheet.create({
           
           
       },
+      text: {
+        fontSize: 20,
+        textAlign: 'center',
+        color: '#fff',
+        textShadowColor: '#fff',
+        textShadowRadius: 20
+      },
+      container: {
+        padding:10,
+        backgroundColor: '#b12135',
+        margin: 5,
+        borderRadius:5,
+        justifyContent: 'center',
+        alignItems: 'center',
+    
+      },
     subtitle: {
         
             textAlign: "center",
@@ -102,13 +115,7 @@ const styles = StyleSheet.create({
         width : 150,
         height: 150,
     },
-    BottomNav: {
-        flexDirection:"row",
-        backgroundColor: "red",
-        justifyContent:"center",
-        alignContent: "space-around"
 
-    }
 });
 
 export default InnerMenuDrink;

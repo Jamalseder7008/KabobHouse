@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import {Text, StyleSheet, View, FlatList,Button, ScrollView, Image, TouchableOpacity} from "react-native";
 import ImageDetail from "../components/ImageDetail";
 import {Context as PlatesContext} from "../context/PlatesContext"
+import BottomNav from "../components/BottomNav";
 
 const Plates = (props) => {
 
@@ -40,21 +41,7 @@ const Plates = (props) => {
                             </TouchableOpacity>
                         )}
                         />
-                        <View style={styles.BottomNav}>
-                            <TouchableOpacity onPress={() => {props.navigation.navigate("Home")}}>
-                                <Text>HOME</Text> 
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {props.navigation.navigate("Phone")}}>
-                                <Text>Phone</Text> 
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {props.navigation.navigate("Menu")}}>
-                                <Text>Menu</Text> 
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {props.navigation.navigate("Map")}}>
-                                <Text>Map</Text> 
-                            </TouchableOpacity>
-                
-                        </View>
+                        <BottomNav navigation={props.navigation}/>
 
                     </View>
 

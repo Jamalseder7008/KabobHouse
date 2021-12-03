@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import {Text, StyleSheet, View, FlatList,Button, ScrollView, Image, TouchableOpacity} from "react-native";
 import ImageDetail from "../components/ImageDetail";
 import { Context as SaladContext } from "../context/SaladContext";
-
+import BottomNav from "../components/BottomNav";
 
 const Salads = (props) => {
     const{state, loadSalads} = useContext(SaladContext);
@@ -24,21 +24,7 @@ const Salads = (props) => {
                             </TouchableOpacity>
                         )}
                         />
-                        <View style={styles.BottomNav}>
-                            <TouchableOpacity onPress={() => {props.navigation.navigate("Home")}}>
-                                <Text>HOME</Text> 
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {props.navigation.navigate("Phone")}}>
-                                <Text>Phone</Text> 
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {props.navigation.navigate("Menu")}}>
-                                <Text>Menu</Text> 
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {props.navigation.navigate("Map")}}>
-                                <Text>Map</Text> 
-                            </TouchableOpacity>
-                        
-                        </View>
+                        <BottomNav navigation={props.navigation}/>
                     </View>
 
                 </View>

@@ -3,7 +3,7 @@ import {Text, StyleSheet, View, FlatList,Button, Image, ScrollView, Touchable} f
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ImageDetail from "../components/ImageDetail";
 import {Context as DrinksContext} from "../context/DrinksContext";
-
+import BottomNav from "../components/BottomNav";
 
 const Drinks = (props) => {
 
@@ -27,22 +27,7 @@ const Drinks = (props) => {
                         )}
                         />
                         
-                    <View style={styles.BottomNav}>
-
-                        <TouchableOpacity onPress={() => {props.navigation.navigate("Home")}}>
-                            <Text>HOME</Text> 
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {props.navigation.navigate("Phone")}}>
-                            <Text>Phone</Text> 
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {props.navigation.navigate("Menu")}}>
-                            <Text>Menu</Text> 
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {props.navigation.navigate("Map")}}>
-                            <Text>Map</Text> 
-                        </TouchableOpacity>
-                    
-                    </View>
+                        <BottomNav navigation={props.navigation}/>
                 </View>
             </ScrollView>
         </View>

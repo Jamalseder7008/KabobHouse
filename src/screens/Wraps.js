@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import {Text, StyleSheet, View, FlatList,Button, Image, ScrollView, TouchableOpacity} from "react-native";
 import ImageDetail from "../components/ImageDetail";
 import { Context as WrapsContext } from "../context/WrapsContext";
+import BottomNav from "../components/BottomNav";
+
 
 const Wraps = (props) => {
 
@@ -25,22 +27,7 @@ const Wraps = (props) => {
                         )}
                         />
                         
-                    <View style={styles.BottomNav}>
-
-                        <TouchableOpacity onPress={() => {props.navigation.navigate("Home")}}>
-                            <Text>HOME</Text> 
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {props.navigation.navigate("Phone")}}>
-                            <Text>Phone</Text> 
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {props.navigation.navigate("Menu")}}>
-                            <Text>Menu</Text> 
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {props.navigation.navigate("Map")}}>
-                            <Text>Map</Text> 
-                        </TouchableOpacity>
-                    
-                    </View>
+                        <BottomNav navigation={props.navigation}/>
                 </View>
             </ScrollView>
         </View>
