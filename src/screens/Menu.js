@@ -42,6 +42,10 @@ const Menu = (props) => {
                 <Text style={styles.text}>PLATES </Text>
             </TouchableOpacity>
             <Text>{"\n"}</Text>
+            <TouchableOpacity style={styles.container} onPress = {() => {props.navigation.navigate("Wraps")}}>
+            <Text style={styles.text}>WRAPS </Text>
+            </TouchableOpacity>
+            <Text>{"\n"}</Text>
             <TouchableOpacity style={styles.container} onPress = {() => {props.navigation.navigate("Salads")}}>
             <Text style={styles.text}>SOUPS AND SALADS </Text>
             </TouchableOpacity>
@@ -50,10 +54,7 @@ const Menu = (props) => {
             <Text style={styles.text}>DRINKS </Text>
             </TouchableOpacity>
             <Text>{"\n"}</Text>
-            <TouchableOpacity style={styles.container} onPress = {() => {props.navigation.navigate("Wraps")}}>
-            <Text style={styles.text}>WRAPS </Text>
-            </TouchableOpacity>
-            <Text>{"\n"}</Text>
+            
 
             <BottomNav navigation={props.navigation}/>
             

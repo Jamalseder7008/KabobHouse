@@ -1,3 +1,4 @@
+
 import React from "react";
 import {Text, StyleSheet, View, Image, FlatList,Button} from "react-native";
 
@@ -18,9 +19,8 @@ const ImageDetail = (props) => {
             <View style={styles.viewStyle}>
                 <Image style={styles.image} source={props.imageSource}/>
                 <View style={styles.viewStyle1}>
-                    <Text style={styles.textStyle}>{props.title} {"\n"}</Text>
-                    <Text style={styles.textStyle}>{props.description} {"\n"}</Text>
-                    <Text style={styles.textStyle}> {props.price}</Text>    
+                    <Text style={styles.textStyle}>{props.title} </Text>
+                     
                 </View>
                 
              </View>
@@ -36,29 +36,33 @@ const styles = StyleSheet.create({
     },
     viewStyle:{
       flexDirection: "row",
-      paddingTop: 20,
-      paddingLeft: 20,
-    
-        alignContent: "space-around",
-      alignItems: "stretch", 
+      padding: 20,
+      
+      margin: 5,
+        
+       
     },
     viewStyle1:{
-        flexDirection: "column",
-        alignContent: "center",
-        alignItems:"center",
+        
+        flexShrink:1,
+        justifyContent: "center",
+        
     },
     image:{
         width : 100,
         height: 100,
+        marginRight: 20,
+        backgroundColor: 'grey'
     
     },
     textStyle:{
-        flexDirection: "row",
+        
         flexShrink: 1,
-        textAlign: "center",
-        alignContent: "center",
-        justifyContent: "center",
-        fontSize:30,
+        alignSelf:"center",
+        fontSize:20,
+        fontWeight:"bold",
+        
+        flexWrap:"wrap"
         
         
     }

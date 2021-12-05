@@ -1,37 +1,56 @@
 //TODO 0: Create login screen -DJ (Complete If possible by Saturday mainly guest login)
-
-import React from "react";
-import { Text, StyleSheet, View, Button, TouchableOpacity, Flatlist, AppRegistry, Image } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
+import React, { useContext, useState } from "react";
+import { StyleSheet, View, TouchableOpacity, Flatlist, AppRegistry, Image } from "react-native";
+import {Text, Input, Button} from 'react-native-elements';
+import AuthForm from "../components/AuthForm";
+import Spacer from "../components/Spacer";
+import { Context as AuthContext } from "../context/AuthContext";
+import NavLink from "../components/NavLink";
 
 const CreateAccount = (props) => {
-    return (
-        <View style={styles.backGround}>
-            <View style={styles.container1}>
-                <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.jpg')} />
-            </View>
+
+    
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+    const {state, signup} = useContext(AuthContext);
+    
+    console.log(state)
 
 
-            <Text style={styles.title}>Create Account</Text>
-
-            <TextInput style={styles.itextInput} placeholder='Email' />
-            <TextInput style={styles.itextInput} placeholder='Password' />
-            <TextInput style={styles.itextInput} placeholder='Password' />
-
-            <TouchableOpacity
-
-                onPress={() => props.navigation.navigate('Home')}
-                style={styles.button}
-            >
-                <Text style={styles.title}>Create Account</Text>
-            </TouchableOpacity>
-
+    return <View style={styles.backGround}>
+        <AuthForm
+            headerText="Sign up for Kabob House"
+            errorMessage={state.errorMessage}
+            submitButtonText="Sign Up"
+            onSubmit={({email,password}) =>signup({email,password})}
+            />
+            <NavLink 
+            routeName="Login"
+            text="Already have an account? Sign in!"
+            />
         </View>
-    );
+    
 }
 
+CreateAccount.navigationOptions =() =>{
+    return {
+        headerShown: false,
+    }
+}
 
 const styles = StyleSheet.create({
+    backGround:{
+        borderWidth:10,
+        flex:1,
+        justifyContent: 'center',
+        marginBottom:200,
+        backgroundColor: "#fff"
+    },
+    errorMessage:{
+        fontSize: 16,
+        color: 'red',
+        marginLeft: 15
+    },
     title: {
         textAlign: "center",
         alignContent: "space-around",
@@ -55,19 +74,19 @@ const styles = StyleSheet.create({
         width: 150,
         height: 150
     },
-    itextInput: {
-        margin: 15,
-        height: 40,
-        borderColor: 'grey',
-        borderWidth: 1
-    },
     button: {
         marginTop: 20,
         backgroundColor: "red",
         padding: 15,
         borderRadius: 50,
-    }
-
+    },
+    backGround:{
+        borderWidth:10,
+        flex:1,
+        justifyContent: 'center',
+        marginBottom:200,
+        backgroundColor: "#fff"
+    },
 });
 
 export default CreateAccount;

@@ -1,12 +1,16 @@
 
-import { createAppContainer } from "react-navigation";
-//import {NavigationContainer} from "@react-navigation/native";
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-import React, { useCallback } from "react";
+import { createBottomTabNavigator } from "react-navigation-tabs";
+import { setNavigator } from "./src/navigationRef";
+
+import React from "react";
+
+import Login from "./src/screens/Login";
+import CreateAccount from "./src/screens/CreateAccount";
+import AccountScreen from "./src/screens/AccountScreen";
 import HomeScreen from "./src/screens/HomeScreen";
 import Map from "./src/screens/Map";
-// import ListScreen from "./src/screens/ListScreen";
-//import ImageScreen from "./src/screens/Appetizers";
 import CartScreen from "./src/screens/CartScreen";
 import Menu from "./src/screens/Menu";
 import Plates from "./src/screens/Plates";
@@ -14,8 +18,6 @@ import Appetizers from "./src/screens/Appetizers";
 import Salads from "./src/screens/Salads";
 import Drinks from "./src/screens/Drinks";
 import Wraps from "./src/screens/Wraps";
-import Login from "./src/screens/Login";
-import CreateAccount from "./src/screens/CreateAccount";
 
 import InnerMenuAppetizer from "./src/screens/InnerMenuAppetizer";
 import InnerMenuPlate from "./src/screens/InnerMenuPlate";
@@ -30,53 +32,58 @@ import { Provider as PlatesProvider } from "./src/context/PlatesContext";
 import { Provider as SaladsProvider } from "./src/context/SaladContext";
 import { Provider as DrinksProvider } from "./src/context/DrinksContext";
 import { Provider as WrapsProvider } from "./src/context/WrapsContext";
+import { Provider as AuthProvider } from "./src/context/AuthContext";
 
+//describes flow of the project, login is the beginning, login allows for user to enter.
+//main flow has a bottom navigator with main navigation points.
+const switchNavigator= createSwitchNavigator({
+    loginFlow: createStackNavigator({
+      Login: Login,
+      Signup: CreateAccount,
+    }),
+    mainFlow: createBottomTabNavigator({
+      Home: createStackNavigator({ 
+        Home: HomeScreen,
+      }),
+      Menu: createStackNavigator({
+          Menu: Menu,
+          Appetizers: Appetizers,
+          Plates: Plates,
+          
+          Salads: Salads,
+          Drinks: Drinks,
+          Wraps: Wraps,
+          InnerMenuAppetizer: InnerMenuAppetizer,
+          InnerMenuPlate: InnerMenuPlate,
+          InnerMenuSalad: InnerMenuSalad,
+          InnerMenuDrink: InnerMenuDrink,
+          InnerMenuWrap: InnerMenuWrap,
+      }),
+      Cart: CartScreen,
+      Map: Map,
+      // Account: AccountScreen,
+    })
+});
+const App = createAppContainer(switchNavigator);
 
-const navigator = createStackNavigator(
-  {
-    Login: Login,
-    NewAccount: CreateAccount,
-    Home: HomeScreen,
-    Map: Map,
-    Appetizers: Appetizers,
-    Plates: Plates,
-    Cart: CartScreen,
-    Menu: Menu,
-    Salads: Salads,
-    Drinks: Drinks,
-    Wraps: Wraps,
-
-    InnerMenuAppetizer: InnerMenuAppetizer,
-    InnerMenuPlate: InnerMenuPlate,
-    InnerMenuSalad: InnerMenuSalad,
-    InnerMenuDrink: InnerMenuDrink,
-    InnerMenuWrap: InnerMenuWrap,
-
-  },
-  {
-    initialRouteName: "Login",
-    defaultNavigationOptions: {
-      title: "Kabob House Mobile",
-    },
-  }
-);
-const App = createAppContainer(navigator);
-
+//exports app and allows all context to be used within one another
 export default () => {
-  return <CartProvider>
-    <AppetizerProvider>
-      <WrapsProvider>
-        <SaladsProvider>
-          <DrinksProvider>
-            <PlatesProvider>
-              <InnerMenuProvider>
-                <App />
-              </InnerMenuProvider>
-            </PlatesProvider>
-          </DrinksProvider>
-        </SaladsProvider>
-      </WrapsProvider>
-    </AppetizerProvider>
-  </CartProvider>
+  return <AuthProvider>
+    <CartProvider>
+      <AppetizerProvider>
+        <WrapsProvider>
+          <SaladsProvider>
+            <DrinksProvider>
+              <PlatesProvider>
+                <InnerMenuProvider>
+                  <App ref={(navigator) => {setNavigator(navigator)}} />
+                </InnerMenuProvider>
+              </PlatesProvider>
+            </DrinksProvider>
+          </SaladsProvider>
+        </WrapsProvider>
+      </AppetizerProvider>
+    </CartProvider>
+  </AuthProvider>
 
 }
