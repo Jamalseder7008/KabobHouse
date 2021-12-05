@@ -33,10 +33,12 @@ import { Provider as SaladsProvider } from "./src/context/SaladContext";
 import { Provider as DrinksProvider } from "./src/context/DrinksContext";
 import { Provider as WrapsProvider } from "./src/context/WrapsContext";
 import { Provider as AuthProvider } from "./src/context/AuthContext";
+import LoadingScreen from "./src/screens/LoadingScreen";
 
 //describes flow of the project, login is the beginning, login allows for user to enter.
 //main flow has a bottom navigator with main navigation points.
 const switchNavigator= createSwitchNavigator({
+    LoadingScreen: LoadingScreen,
     loginFlow: createStackNavigator({
       Login: Login,
       Signup: CreateAccount,
@@ -61,6 +63,7 @@ const switchNavigator= createSwitchNavigator({
       }),
       Cart: CartScreen,
       Map: Map,
+      AccountScreen: AccountScreen,
       // Account: AccountScreen,
     })
 });

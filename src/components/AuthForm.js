@@ -35,16 +35,14 @@ const AuthForm = ({headerText, errorMessage, onSubmit, submitButtonText}) => {
                 />
             {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text>:null}
             <Spacer>
-                {/* <TouchableOpacity
+                <TouchableOpacity
 
-                    onPress={() => {signup({email,password})}}
+                    onPress={() => {onSubmit({email,password})}}
                     style={styles.button}
                     >
-                    <Text style={styles.title}>Create Account</Text>
-                </TouchableOpacity> */}
-                <Button style={styles.button} title={submitButtonText} onPress={
-                    () => {onSubmit({email,password})}
-                } />
+                    <Text style={styles.buttontext}>{submitButtonText}</Text>
+                </TouchableOpacity>
+        
             </Spacer>
             </Spacer>
         </>
@@ -89,9 +87,16 @@ const styles=StyleSheet.create({
     },
     button: {
         marginTop: 20,
-        backgroundColor: "red",
+        backgroundColor: "#ad1c30",
         padding: 15,
         borderRadius: 50,
+    },
+    buttontext: {
+        textAlign: "center",
+        alignContent: "space-around",
+        fontSize: 20,
+        fontWeight: "bold",
+        color: '#fff'
     }
 });
 

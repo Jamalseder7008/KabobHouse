@@ -3,12 +3,17 @@ import { Text, StyleSheet, View, Button, TouchableOpacity, Flatlist, AppRegistry
 import NavLink from "../components/NavLink";
 import AuthForm from "../components/AuthForm";
 import {Context as AuthContext} from "../context/AuthContext";
+import { NavigationEvents } from "react-navigation";
 
 const Login = () => {
 
-    const {state, signin} = useContext(AuthContext);
+    const {state, signin, clearErrorMessage} = useContext(AuthContext);
+
 
     return <View style={styles.backGround}>
+        <NavigationEvents 
+            onWillFocus={() => {clearErrorMessage()}}
+            />
         <AuthForm
             headerText="Sign In to Kabob House"
             errorMessage={state.errorMessage}

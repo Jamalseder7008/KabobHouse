@@ -41,7 +41,7 @@ const Plates = (props) => {
                             </TouchableOpacity>
                         )}
                         />
-                        <BottomNav navigation={props.navigation}/>
+                
 
                     </View>
 

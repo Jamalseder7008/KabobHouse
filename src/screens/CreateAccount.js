@@ -1,23 +1,31 @@
-//TODO 0: Create login screen -DJ (Complete If possible by Saturday mainly guest login)
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, View, TouchableOpacity, Flatlist, AppRegistry, Image } from "react-native";
 import {Text, Input, Button} from 'react-native-elements';
 import AuthForm from "../components/AuthForm";
 import Spacer from "../components/Spacer";
 import { Context as AuthContext } from "../context/AuthContext";
 import NavLink from "../components/NavLink";
+import { NavigationEvents } from "react-navigation";
 
 const CreateAccount = (props) => {
 
     
     // const [email, setEmail] = useState('');
     // const [password, setPassword] = useState('');
-    const {state, signup} = useContext(AuthContext);
-    
+    const {state, signup, clearErrorMessage, tryLocalSignin} = useContext(AuthContext);
+    useEffect(() => {
+        tryLocalSignin();
+    }, [])
     console.log(state)
 
 
     return <View style={styles.backGround}>
+        <NavigationEvents
+            onWillFocus={() => {clearErrorMessage()}}
+            // onDidFocus={() => {}}
+            // onWillBlur={()=> {}}
+            // onDidBlur={() => {}}
+            />
         <AuthForm
             headerText="Sign up for Kabob House"
             errorMessage={state.errorMessage}

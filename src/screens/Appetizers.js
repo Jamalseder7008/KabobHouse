@@ -3,7 +3,7 @@ import {Text, StyleSheet, View, FlatList,Button, TouchableOpacity, Image, Scroll
 import ImageDetail from "../components/ImageDetail";
 import {Context as AppetizerContext} from "../context/AppetizerContext";
 import BottomNav from "../components/BottomNav";
-
+import Spacer from "../components/Spacer";
 
 //Use dictionary to populate each imagedetail component
 //0 is title, 1 is description, 2 is source, 3 is price
@@ -17,7 +17,9 @@ const Appetizers = (props) => {
                     <View style={styles.container}>
                         <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.jpg')}/>
                     </View>
-                    <Text style={styles.title}>Appetizers{"\n"}</Text>     
+                    <Spacer>
+                        <Text style={styles.title}>Appetizers{"\n"}</Text>     
+                    </Spacer>
                     <FlatList
                         data={state}
                         keyExtractor={(appetizer) => {return appetizer.title}}
@@ -29,7 +31,7 @@ const Appetizers = (props) => {
                         )}
                         />
 
-                <BottomNav navigation={props.navigation}/>
+                
                 </View>
             </ScrollView>
         </View>

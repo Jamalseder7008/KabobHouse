@@ -27,7 +27,7 @@ const Drinks = (props) => {
                         )}
                         />
                         
-                        <BottomNav navigation={props.navigation}/>
+                        
                 </View>
             </ScrollView>
         </View>

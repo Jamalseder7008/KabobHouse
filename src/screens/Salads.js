@@ -24,7 +24,7 @@ const Salads = (props) => {
                             </TouchableOpacity>
                         )}
                         />
-                        <BottomNav navigation={props.navigation}/>
+                        
                     </View>
 
                 </View>

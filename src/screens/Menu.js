@@ -1,6 +1,5 @@
 import React from "react";
 import {Text, StyleSheet, Button, View, TouchableOpacity, Image} from 'react-native';
-import BottomNav from "../components/BottomNav";
 
 const Menu = (props) => {
 
@@ -56,7 +55,7 @@ const Menu = (props) => {
             <Text>{"\n"}</Text>
             
 
-            <BottomNav navigation={props.navigation}/>
+            
             
     </View>;
 }
