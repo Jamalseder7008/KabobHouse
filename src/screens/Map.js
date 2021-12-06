@@ -1,5 +1,7 @@
 import React from "react";
-import {Text, StyleSheet, View, FlatList, Button} from "react-native";
+import {Text, StyleSheet, Linking, TouchableOpacity, View, FlatList, Button, Image} from "react-native";
+import { Link } from "react-router-dom";
+
 
 const Components = () => {
 
@@ -10,8 +12,13 @@ const Components = () => {
 
   // TODO 2: Add store hours 10AM-9PM
 
-    return <Text style={styles.text}>KABOB HOUSE {"\n\n"}
+    return<View>
+    <Text style={styles.text}>KABOB HOUSE {"\n\n"}
     View the map</Text>;
+    <TouchableOpacity onPress={()=> Linking("https://www.google.com/maps/dir//kabob+house/")} >
+      <Image style={styles.map} source={require("../../assets/KabobHouseMap.jpg")}/>
+    </TouchableOpacity>
+    </View> 
   };
   
   const styles = StyleSheet.create({
@@ -23,7 +30,7 @@ const Components = () => {
     // TODO 2: ensure Google maps is not too big or too small on screen make it fit
 
     // TODO 3: add hours at the bottom of the screen easy for people to read
-    
+    map:{width:300, height:300},
     text: {
       fontSize: 30
     }

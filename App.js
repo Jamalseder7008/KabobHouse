@@ -43,7 +43,7 @@ const switchNavigator= createSwitchNavigator({
       Login: Login,
       Signup: CreateAccount,
     }),
-    mainFlow: createBottomTabNavigator({
+    mainFlow: createBottomTabNavigator({      
       Home: createStackNavigator({ 
         Home: HomeScreen,
       }),
