@@ -1,4 +1,3 @@
-
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
@@ -18,6 +17,8 @@ import Appetizers from "./src/screens/Appetizers";
 import Salads from "./src/screens/Salads";
 import Drinks from "./src/screens/Drinks";
 import Wraps from "./src/screens/Wraps";
+import CheckoutScreen from "./src/screens/CheckoutScreen";
+import PurchaseComplete from "./src/screens/PurchaseComplete";
 
 import InnerMenuAppetizer from "./src/screens/InnerMenuAppetizer";
 import InnerMenuPlate from "./src/screens/InnerMenuPlate";
@@ -60,6 +61,8 @@ const switchNavigator= createSwitchNavigator({
           InnerMenuSalad: InnerMenuSalad,
           InnerMenuDrink: InnerMenuDrink,
           InnerMenuWrap: InnerMenuWrap,
+          Checkout: CheckoutScreen,
+          Complete: PurchaseComplete,
       }),
       Cart: CartScreen,
       Map: Map,
