@@ -42,7 +42,7 @@ const Components = () => {
     // TODO 2: ensure Google maps is not too big or too small on screen make it fit
 
     // TODO 3: add hours at the bottom of the screen easy for people to read
-    
+    map:{width:300, height:300},
     text: {
       fontSize: 30
     },
