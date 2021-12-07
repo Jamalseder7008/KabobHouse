@@ -26,6 +26,8 @@ import InnerMenuSalad from "./src/screens/InnerMenuSalad";
 import InnerMenuDrink from "./src/screens/InnerMenuDrink";
 import InnerMenuWrap from "./src/screens/InnerMenuWrap";
 
+import { Ionicons } from "@expo/vector-icons";
+
 import { Provider as CartProvider } from "./src/context/CartContext";
 import { Provider as AppetizerProvider } from "./src/context/AppetizerContext";
 import { Provider as InnerMenuProvider } from "./src/context/InnerMenuContext";
@@ -44,11 +46,46 @@ const switchNavigator= createSwitchNavigator({
       Login: Login,
       Signup: CreateAccount,
     }),
+    
     mainFlow: createBottomTabNavigator({      
-      Home: createStackNavigator({ 
-        Home: HomeScreen,
-      }),
-      Menu: createStackNavigator({
+       
+        Home: {
+          screen: HomeScreen,
+          navigationOptions:{
+            tabBarLabel: "Home",
+            tabBarOptions: {
+              activeTintColor: '#b12135',
+            },
+            tabBarIcon: (tabInfo) =>{
+              return(
+                <Ionicons
+                  name="md-home"
+                  size={24}
+                  color={tabInfo.focused ? '#b12135':"#8e8e93"}
+                  />
+              );
+            },
+          },
+        },
+        // Menu: {
+        //   screen: Menu,
+        //   navigationOptions:{
+        //     tabBarLabel: "Menu",
+        //     tabBarOptions: {
+        //       activeTintColor: '#b12135',
+        //     },
+        //     tabBarIcon: (tabInfo) =>{
+        //       return(
+        //         <Ionicons
+        //           name="restaurant"
+        //           size={24}
+        //           color={tabInfo.focused ? '#b12135':"#8e8e93"}
+        //           />
+        //       );
+        //     },
+        //   },
+        // },
+        Menu: createStackNavigator({
           Menu: Menu,
           Appetizers: Appetizers,
           Plates: Plates,
@@ -64,10 +101,62 @@ const switchNavigator= createSwitchNavigator({
           Checkout: CheckoutScreen,
           Complete: PurchaseComplete,
       }),
-      Cart: CartScreen,
-      Map: Map,
-      AccountScreen: AccountScreen,
-      // Account: AccountScreen,
+      Cart: {
+        screen: CartScreen,
+        navigationOptions:{
+          tabBarLabel: "Cart",
+          tabBarOptions: {
+            activeTintColor: '#b12135',
+          },
+          tabBarIcon: (tabInfo) =>{
+            return(
+              <Ionicons
+                name="cart"
+                size={24}
+                color={tabInfo.focused ? '#b12135' : "#8e8e93"}
+                />
+            );
+          },
+        },
+      },
+      Map: {
+        screen: Map,
+        navigationOptions:{
+          tabBarLabel: "Map",
+          tabBarOptions:{
+            activeTintColor: '#b12135',
+          },
+          tabBarIcon: (tabInfo) =>{
+            return(
+              <Ionicons
+              name="map"
+              size={24}
+              color={tabInfo.focused ? '#b12135' : "#8e8e93"}
+              />
+
+            );
+          },
+        },
+      },
+      AccountScreen: {
+        screen: AccountScreen,
+        navigationOptions:{
+          tabBarLabel: "Account",
+          tabBarOptions: {
+            activeTintColor: '#b12135',
+          },
+          tabBarIcon: (tabInfo) =>{
+            return(
+              <Ionicons
+                name="person"
+                size={24}
+                color={tabInfo.focused ? '#b12135' : "#8e8e93"}
+                />
+            );
+          },
+        },
+      },
+      
     })
 });
 const App = createAppContainer(switchNavigator);

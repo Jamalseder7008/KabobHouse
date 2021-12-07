@@ -5,7 +5,7 @@ import {Context as CartContext} from "../context/CartContext";
 
 
 
-const CartScreen =() => {
+const CartScreen =(props) => {
 
     
     const{state, deleteCartItem, getCartTotal} = useContext(CartContext);
@@ -19,21 +19,12 @@ const CartScreen =() => {
         total = sumFunction(total, cartItem.price)
     })
     
-    
-    
-
-    // const [count, setCounter] = useState(0);
-
-    // const [cart, setCart] = useState(0);
-
-    // const addToCart = (productId, variantInfo) => {
-
     return<View style={styles.backGround}>
             <View style={styles.container1}>
                 <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.jpg')}/>
             </View>
             <Text style={styles.title}>CART{"\n"}</Text>
-            {/* <Button title="Add to Cart" onPress={() => { addCartItem()}}/> */}
+            
             <FlatList
                 data={state}
                 keyExtractor={(cartItem) => {return cartItem.title, cartItem.price}}
@@ -57,11 +48,13 @@ const CartScreen =() => {
             <View>
                 <Text style={styles.total}>Total: ${total}</Text>
             </View>
-        {/* <Text>Current Count: {count}</Text> */}
-
-        <TouchableOpacity style={styles.container} onPress={() => {props.navigation.navigate("Checkout")}}>
-                <Text style={styles.text}>Pay </Text>
-            </TouchableOpacity>    
+        
+                <View style={styles.container}>
+                    <TouchableOpacity onPress={() => {props.navigation.navigate("Checkout")}}>
+                        <Text style={styles.text}>Pay </Text>
+                    </TouchableOpacity> 
+                </View>
+           
         </View>
 }
 
@@ -75,6 +68,21 @@ const styles = StyleSheet.create({
         borderBottomWidth:1,
         borderColor: 'grey'
     },
+    container: {
+        backgroundColor: '#b12135',
+        margin: 5,
+        borderRadius:5,
+        justifyContent: 'center',
+        alignItems: 'center',
+    
+      },
+      text: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: '#fff',
+        textShadowColor: '#fff',
+        textShadowRadius: 20
+      },
     total: {
         fontSize: 20,
         paddingRight: 20,

@@ -1,6 +1,5 @@
 import React from "react";
 import {Text, StyleSheet, Linking, TouchableOpacity, View, FlatList, Button, Image} from "react-native";
-import { Link } from "react-router-dom";
 
 
 const Components = () => {
@@ -14,11 +13,13 @@ const Components = () => {
 
     return<View>
     <Text style={styles.text}>KABOB HOUSE {"\n\n"}
-    View the map</Text>;
+    View the map</Text>
+    <View>
     <TouchableOpacity onPress={()=> Linking("https://www.google.com/maps/dir//kabob+house/")} >
       <Image style={styles.map} source={require("../../assets/KabobHouseMap.jpg")}/>
     </TouchableOpacity>
     </View> 
+    </View>
   };
   
   const styles = StyleSheet.create({

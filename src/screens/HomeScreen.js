@@ -1,11 +1,6 @@
 import React, {useState} from "react";
-import { Text, StyleSheet, View, Button, TouchableOpacity, Image, ScrollView, Dimensions } from "react-native";
-import BottomNav from "../components/BottomNav";
-import ImageDetail from "../components/ImageDetail";
-import { SliderBox } from "react-native-image-slider-box";
-import { useContext } from "../context/PlatesContext";
-import { render } from "react-dom";
-
+import { Text, StyleSheet, Linking, View, Button, TouchableOpacity, Image, ScrollView, Dimensions } from "react-native";
+import {Spacer} from "../components/Spacer";
 
 const HomeScreen = (props) => {
   const [active, setState] = useState(0);
@@ -45,21 +40,21 @@ const HomeScreen = (props) => {
           }
           </ScrollView>
         
-      <View style={{flexDirection:'row', position:"absolute", bottom:0,alignSelf:"center"}}>
-        {images.map((i, k) => (
-          <Text style={{color: 'white', fontSize:25}} key={k} style={k==active ? styles.pagingActiveText : styles.pagingText}>◆</Text>
-        ))
-        }
-        
+        <View style={{flexDirection:'row', position:"absolute", bottom:0,alignSelf:"center"}}>
+          {images.map((i, k) => (
+            <Text style={{color: 'white', fontSize:25}} key={k} style={k==active ? styles.pagingActiveText : styles.pagingText}>◆</Text>
+          ))}
+        </View>
       </View>
-      </View>
-    {/* <View style={styles.container1}>
-      <Image source={require('../../assets/KabobHouseLogo.gif')} style={{width:300, height:300}}/>
-    </View> */}
 
     <TouchableOpacity style={styles.container} onPress={() => { props.navigation.navigate("Menu") }}>
       <Text style={styles.text}>FULL MENU </Text>
     </TouchableOpacity>
+
+    <Button
+      onPress={() => Linking.openURL(`tel:+1(504)-581-8695`)}
+      title={"PHONE"}
+    />
 
   </View>
 };
