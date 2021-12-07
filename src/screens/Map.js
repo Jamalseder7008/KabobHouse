@@ -1,5 +1,6 @@
 import React from "react";
-import {Text, StyleSheet, Linking, TouchableOpacity, View, FlatList, Button, Image} from "react-native";
+import {TouchableOpacity, Linking, Text, StyleSheet, View, FlatList, Button, Image} from "react-native";
+
 
 
 const Components = () => {
@@ -11,15 +12,25 @@ const Components = () => {
 
   // TODO 2: Add store hours 10AM-9PM
 
-    return<View>
-    <Text style={styles.text}>KABOB HOUSE {"\n\n"}
-    View the map</Text>
-    <View>
-    <TouchableOpacity onPress={()=> Linking("https://www.google.com/maps/dir//kabob+house/")} >
-      <Image style={styles.map} source={require("../../assets/KabobHouseMap.jpg")}/>
-    </TouchableOpacity>
-    </View> 
-    </View>
+    return(
+      <View>
+        <View style={styles.container1}>
+          <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.gif')} />
+        </View>
+          <View style={styles.mapBox}>
+            <TouchableOpacity onPress = { () => Linking.openURL("https://www.google.com/maps/dir//kabob+house/")}>
+              <Image style={styles.maps} source={require('../../assets/KabobHouseMap.jpg')}/>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.container2}>
+              <Text style={styles.text}>Open Everyday 9AM - 10PM</Text>
+          </View>
+          <View style={styles.container3}>
+              <Text style={styles.address}>4301 Veterans Memorial Blvd{"\n"}Metairie, LA 70006</Text>
+          </View>
+          
+      </View>    
+    )
   };
   
   const styles = StyleSheet.create({
@@ -34,7 +45,60 @@ const Components = () => {
     map:{width:300, height:300},
     text: {
       fontSize: 30
-    }
+    },
+    container1: {
+
+      alignItems: "center"
+    },
+    logostyle: {
+      width: 200,
+      height: 200,
+    },
+    maps: {
+      width:300,
+      height:300,
+      borderWidth: 10,
+      borderRadius: 6,
+      borderColor: "#20232a",
+      marginTop: 20,
+     
+    },
+    mapBox: {
+
+      alignItems: "center"
+    },
+    container2: {
+      backgroundColor: '#b12135',
+      margin: 40,
+      borderRadius:0,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 46,
+  
+    },
+    text: {
+      fontSize: 20,
+      textAlign: 'center',
+      color: '#fff',
+      textShadowColor: '#fff',
+      textShadowRadius: 0
+    },
+    container3: {
+      backgroundColor: '#b12135',
+      margin: 40,
+      borderRadius:0,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 0,
+  
+    },
+    address: {
+      fontSize: 20,
+      textAlign: 'center',
+      color: '#fff',
+      textShadowColor: '#fff',
+      textShadowRadius: 0
+    },
   });
 
 export default Components;
