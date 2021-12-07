@@ -38,7 +38,7 @@ const CheckoutScreen = (props) => {
                 />
 
                 <TouchableOpacity style={styles.container} onPress={() => {props.navigation.navigate("Complete")}}>
-                    <Text style={styles.text}>Checkout</Text>
+                    <Text style={styles.text}>Submit</Text>
                 </TouchableOpacity>  
 
             </View>
