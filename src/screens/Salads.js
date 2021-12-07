@@ -3,18 +3,20 @@ import {Text, StyleSheet, View, FlatList,Button, ScrollView, Image, TouchableOpa
 import ImageDetail from "../components/ImageDetail";
 import { Context as SaladContext } from "../context/SaladContext";
 import BottomNav from "../components/BottomNav";
+import Logo from "../components/Logo";
+import Spacer from "../components/Spacer";
 
 const Salads = (props) => {
     const{state, loadSalads} = useContext(SaladContext);
-    return (<View>
-            <ScrollView>
-                <View style={styles.backGround}>
-                    <View style={styles.container}>
-                        <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.jpg')}/>
-                    </View>
-                    <Text style={styles.title}>Salads{"\n"}</Text>    
-                    <View style={styles.container1}>
-                    <FlatList
+    return (<View style={styles.backGround}>
+        <FlatList
+            ListHeaderComponent={
+                <>
+                <Logo />
+                <Spacer>
+                    <Text style={styles.title}>Soups and Salads{"\n"}</Text>    
+                    </Spacer>
+                    </>}
                         data={state}
                         keyExtractor={(salad) => {return salad.title}}
                         renderItem={({ item }) => (
@@ -23,16 +25,10 @@ const Salads = (props) => {
                                 {/* <Text>{item.title}</Text> */}
                             </TouchableOpacity>
                         )}
-                        />
-                        
-                    </View>
-
-                </View>
-            </ScrollView>
-        </View>
-        
-    );
-}
+                        ListFooterComponent={<Text>{"\n"}</Text>}/>
+                        </View>        
+                    );
+                }
 
 
 const styles = StyleSheet.create({

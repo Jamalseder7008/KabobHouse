@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {Text, Button, Input} from 'react-native-elements';
 import Spacer from './Spacer';
+import Logo from './Logo';
 
 const AuthForm = ({headerText, errorMessage, onSubmit, submitButtonText}) => {
     const [email, setEmail] = useState('');
@@ -9,9 +10,7 @@ const AuthForm = ({headerText, errorMessage, onSubmit, submitButtonText}) => {
 
     return <>
         <Spacer>
-            <View style={styles.container1}>
-                <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.jpg')} />
-            </View>
+            <Logo />
         
 
             <Text style={styles.title}>{headerText}</Text>

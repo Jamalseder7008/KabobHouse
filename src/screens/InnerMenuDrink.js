@@ -54,7 +54,8 @@ InnerMenuDrink.navigationOptions = (props) => {
 const styles = StyleSheet.create({
     backGround:{
         backgroundColor: '#ffffff',
-        overflow: 'scroll'
+        overflow: 'scroll',
+        flex:1
     },
     container1:{
         alignContent: "space-between"
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
       textStyle:{
           flexDirection: "row",
           flexShrink: 1,
-          
+          textAlign: "center",
           fontSize:18,
           
           

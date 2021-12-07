@@ -1,6 +1,6 @@
 import React from "react";
 import {TouchableOpacity, Linking, Text, StyleSheet, View, FlatList, Button, Image} from "react-native";
-
+import LogoGif from "../components/LogoGif";
 
 
 const Components = () => {
@@ -13,10 +13,8 @@ const Components = () => {
   // TODO 2: Add store hours 10AM-9PM
 
     return(
-      <View>
-        <View style={styles.container1}>
-          <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.gif')} />
-        </View>
+      <View style={styles.backGround}>
+        <LogoGif />
           <View style={styles.mapBox}>
             <TouchableOpacity onPress = { () => Linking.openURL("https://www.google.com/maps/dir//kabob+house/")}>
               <Image style={styles.maps} source={require('../../assets/KabobHouseMap.jpg')}/>
@@ -35,17 +33,15 @@ const Components = () => {
   
   const styles = StyleSheet.create({
 
-    // TODO 0: put logo at top in center
-
-    // TODO 1: put the word Navigation or Map under the LOGO with BOLD letters
-
-    // TODO 2: ensure Google maps is not too big or too small on screen make it fit
-
-    // TODO 3: add hours at the bottom of the screen easy for people to read
     map:{width:300, height:300},
     text: {
       fontSize: 30
     },
+    backGround:{
+      backgroundColor: '#ffffff',
+      overflow: 'scroll',
+      flex:1
+  },
     container1: {
 
       alignItems: "center"
@@ -60,8 +56,6 @@ const Components = () => {
       borderWidth: 10,
       borderRadius: 6,
       borderColor: "#20232a",
-      marginTop: 20,
-     
     },
     mapBox: {
 
@@ -73,11 +67,11 @@ const Components = () => {
       borderRadius:0,
       justifyContent: 'center',
       alignItems: 'center',
-      marginTop: 46,
+
   
     },
     text: {
-      fontSize: 20,
+      fontSize: 16,
       textAlign: 'center',
       color: '#fff',
       textShadowColor: '#fff',
@@ -93,7 +87,7 @@ const Components = () => {
   
     },
     address: {
-      fontSize: 20,
+      fontSize: 16,
       textAlign: 'center',
       color: '#fff',
       textShadowColor: '#fff',

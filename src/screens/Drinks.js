@@ -3,20 +3,22 @@ import {Text, StyleSheet, View, FlatList,Button, Image, ScrollView, Touchable} f
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ImageDetail from "../components/ImageDetail";
 import {Context as DrinksContext} from "../context/DrinksContext";
-import BottomNav from "../components/BottomNav";
+import Logo from "../components/Logo";
+import Spacer from "../components/Spacer";
 
 const Drinks = (props) => {
 
     const{state, loadDrinks} = useContext(DrinksContext);
     return (
-        <View>
-            <ScrollView>
-                <View style={styles.backGround}>
-                    <View style={styles.container}>
-                        <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.jpg')}/>
-                    </View>
+        <View style={styles.backGround}>
+            <FlatList
+                ListHeaderComponent={
+                    <>
+                    <Logo />
+                    <Spacer>
                         <Text style={styles.title}>Drinks{"\n"}</Text>
-                    <FlatList
+                    </Spacer>
+                    </>}
                         data={state}
                         keyExtractor={(drink) => {return drink.title, drink.price, drink.id}}
                         renderItem={({ item }) => (
@@ -25,13 +27,8 @@ const Drinks = (props) => {
                                 {/* <Text>{item.title}</Text> */}
                             </TouchableOpacity>
                         )}
-                        />
-                        
-                        
-                </View>
-            </ScrollView>
-        </View>
-        
+                ListFooterComponent={<Text>{"\n"}</Text>}/>
+        </View>        
     );
 }
 // Drinks.navigationOptions = (props) => {

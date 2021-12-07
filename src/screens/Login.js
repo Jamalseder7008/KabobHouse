@@ -21,7 +21,7 @@ const Login = () => {
             onSubmit={({email, password})=> {signin({email,password})}}
             />
         <NavLink 
-            routeName="Home"
+            routeName="Signup"
             text="Don't have an account? Sign up instead!"
         />
         </View>

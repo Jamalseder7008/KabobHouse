@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Text, StyleSheet, Linking, View, Button, TouchableOpacity, Image, ScrollView, Dimensions } from "react-native";
-import {Spacer} from "../components/Spacer";
+import Spacer from "../components/Spacer";
+import LogoGif from "../components/LogoGif";
 
 const HomeScreen = (props) => {
   const [active, setState] = useState(0);
@@ -20,9 +21,7 @@ const HomeScreen = (props) => {
     require('../../assets/chickentekka.jpg'),
   ]
   return <View style={styles.backGround}>
-    <View style={styles.container1}>
-      <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.gif')} />
-    </View>
+    <LogoGif />
       <View style={{ width, height}}>
         <ScrollView 
           pagingEnabled 
@@ -46,15 +45,14 @@ const HomeScreen = (props) => {
           ))}
         </View>
       </View>
-
+      <Spacer />
     <TouchableOpacity style={styles.container} onPress={() => { props.navigation.navigate("Menu") }}>
-      <Text style={styles.text}>FULL MENU </Text>
+      <Text style={styles.text}>FULL MENU</Text>
     </TouchableOpacity>
-
-    <Button
-      onPress={() => Linking.openURL(`tel:+1(504)-581-8695`)}
-      title={"PHONE"}
-    />
+        <Spacer />
+        <TouchableOpacity style={styles.container} onPress={() => Linking.openURL(`tel:+1(504)-581-8695`)}>
+      <Text style={styles.text1}>Contact Us</Text>
+    </TouchableOpacity>
 
   </View>
 };
@@ -85,6 +83,13 @@ const styles = StyleSheet.create({
   
   text: {
     fontSize: 30,
+    textAlign: 'center',
+    color: '#fff',
+    textShadowColor: '#fff',
+    textShadowRadius: 20
+  },
+  text1: {
+    fontSize: 20,
     textAlign: 'center',
     color: '#fff',
     textShadowColor: '#fff',

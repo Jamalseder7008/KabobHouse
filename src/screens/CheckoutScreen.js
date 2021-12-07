@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Image, Button } from "react-native";
 import { Input } from "react-native-elements";
+import Logo from "../components/Logo";
 
 const CheckoutScreen = (props) => {
 
@@ -9,9 +10,7 @@ const CheckoutScreen = (props) => {
     const [CVV, setCVV] = useState('');
 
     return <View style={styles.backGround}>
-                <View style={styles.container1}>
-                    <Image style={styles.logostyle} source={require('../../assets/KabobHouseLogo.jpg')}/>
-                </View>
+                <Logo />
 
                 <Input
                     autoCapitalize="none"
@@ -54,7 +53,8 @@ const styles = StyleSheet.create({
     },
     backGround:{
         backgroundColor: '#ffffff',
-        overflow: 'scroll'
+        overflow: 'scroll',
+        flex:1
     },
     container: {
         backgroundColor: '#b12135',
