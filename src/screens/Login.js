@@ -24,6 +24,10 @@ const Login = () => {
             routeName="Signup"
             text="Don't have an account? Sign up instead!"
         />
+        <NavLink 
+            routeName="Home"
+            text="Don't want an account? Login as a guest!"
+        />
         </View>
 }
 
@@ -38,7 +42,6 @@ const styles = StyleSheet.create({
         borderWidth:10,
         flex:1,
         justifyContent: 'center',
-        marginBottom:200,
         backgroundColor: "#fff"
     },
 });

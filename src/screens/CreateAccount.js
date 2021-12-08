@@ -9,9 +9,6 @@ import { NavigationEvents } from "react-navigation";
 
 const CreateAccount = (props) => {
 
-    
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
     const {state, signup, clearErrorMessage, tryLocalSignin} = useContext(AuthContext);
     useEffect(() => {
         tryLocalSignin();
@@ -51,50 +48,7 @@ const styles = StyleSheet.create({
         borderWidth:10,
         flex:1,
         justifyContent: 'center',
-        marginBottom:200,
-        backgroundColor: "#fff"
-    },
-    errorMessage:{
-        fontSize: 16,
-        color: 'red',
-        marginLeft: 15
-    },
-    title: {
-        textAlign: "center",
-        alignContent: "space-around",
-        fontSize: 20,
-        fontWeight: "bold",
-    },
-    container: {
-        justifyContent: 'center',
-        alignItems: 'center',
-
-    },
-    logo: {
-        width: 300,
-        height: 400
-    },
-    container1: {
-
-        alignItems: "center"
-    },
-    logostyle: {
-        width: 150,
-        height: 150
-    },
-    button: {
-        marginTop: 20,
-        backgroundColor: "red",
-        padding: 15,
-        borderRadius: 50,
-    },
-    backGround:{
-        borderWidth:10,
-        flex:1,
-        justifyContent: 'center',
-        marginBottom:200,
         backgroundColor: "#fff"
     },
 });
-
 export default CreateAccount;

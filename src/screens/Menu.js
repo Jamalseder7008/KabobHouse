@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     },
     backGround:{
         backgroundColor: '#ffffff',
+        flex:1,
         overflow: 'scroll'
     },
     title:{

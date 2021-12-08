@@ -35,7 +35,7 @@ const InnerMenuAppetizer = (props) => {
                         
                         <Text style={styles.textStyle}>{"\n"}{itemDetails.description} {"\n"}</Text>
                         <Text style={styles.textStyle}> ${itemDetails.price}{"\n"}</Text>
-                        <TouchableOpacity style={styles.container} onPress={()=> {addCartItem(itemDetails.title, itemDetails.price);}}>
+                        <TouchableOpacity style={styles.container} onPress={()=> {props.navigation.navigate("Menu"), addCartItem(itemDetails.title, itemDetails.price);}}>
                             <Text style={styles.text}>Add to Cart</Text>
                         </TouchableOpacity>
                         </View>

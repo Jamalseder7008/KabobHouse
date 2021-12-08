@@ -33,7 +33,7 @@ const AuthForm = ({headerText, errorMessage, onSubmit, submitButtonText}) => {
                 onChangeText={(newPassword) => {setPassword(newPassword)}}
                 />
             {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text>:null}
-            <Spacer>
+            
                 <TouchableOpacity
 
                     onPress={() => {onSubmit({email,password})}}
@@ -42,7 +42,7 @@ const AuthForm = ({headerText, errorMessage, onSubmit, submitButtonText}) => {
                     <Text style={styles.buttontext}>{submitButtonText}</Text>
                 </TouchableOpacity>
         
-            </Spacer>
+                
             </Spacer>
         </>
     
