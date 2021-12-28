@@ -16,7 +16,7 @@ const Components = () => {
       <View style={styles.backGround}>
         <LogoGif />
           <View style={styles.mapBox}>
-            <TouchableOpacity onPress = { () => Linking.openURL("https://www.google.com/maps/dir//kabob+house/")}>
+            <TouchableOpacity onPress = { () => Linking.openURL("https://www.google.com/maps/dir//kabob+house+NOLA/")}>
               <Image style={styles.maps} source={require('../../assets/KabobHouseMap.jpg')}/>
             </TouchableOpacity>
           </View>
